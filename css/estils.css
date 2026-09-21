@@ -246,22 +246,6 @@ footer.peu .autoria strong { color: var(--tinta); }
   text-align: left;
   background: var(--fons);
 }
-/* Fons de tota la portada */
-body.portada {
-  background: url("../img/imagen.png") center center / cover fixed no-repeat;
-  min-height: 100vh;
-}
-
-/* El requadre central deixa veure el fons */
-body.portada .panell {
-  background: rgba(255, 255, 255, 0.88);
-}
-
-/* Traiem el fons verd de dalt */
-body.portada .heroe {
-  background: rgba(0, 0, 0, 0.35);
-}
-
 .bloc-llicencia h3 { margin: 0 0 8px; font-size: 1rem; color: var(--mari); }
 .bloc-llicencia p { margin: 6px 0; font-size: 0.92rem; }
 .bloc-llicencia .badge-cc { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
