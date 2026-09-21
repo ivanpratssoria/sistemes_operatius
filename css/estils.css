@@ -30,11 +30,6 @@ body {
 
 .portada-hero {
     text-align: center;
-    background-image: url("../img/imagen.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
 }
 a { color: var(--teal); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -47,7 +42,7 @@ a:hover { text-decoration: underline; }
 
 /* ---------- Capçalera / hero (present a totes les pàgines) ---------- */
 .hero {
-  background: transparent;(125deg, var(--mari) 0%, var(--teal) 55%, var(--ambre) 100%);
+  background: linear-gradient(125deg, var(--mari) 0%, var(--teal) 55%, var(--ambre) 100%);
   padding-bottom: 60px;
   color: var(--blanc);
 }
@@ -106,10 +101,6 @@ main { padding-bottom: 50px; }
   padding: 32px 34px;
   position: relative;
   z-index: 1;
-}
-.panell.portada-hero {
-  background: url("../img/imagen.png") center / cover no-repeat;
-  min-height: 100vh;
 }
 
 .fitxa-alumne {
