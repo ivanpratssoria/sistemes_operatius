@@ -254,11 +254,6 @@ body.portada main,
 body.portada footer {
   background: transparent;
 }
-
-body.portada footer,
-body.portada footer strong {
-  color: white;
-}
 /* Text del peu en blanc només a la portada */
 body.portada footer.peu,
 body.portada footer.peu .autoria,
@@ -274,10 +269,6 @@ body.portada .panell.portada-hero {
 body.portada .hero,
 body.portada .heroe,
 body.portada .capcalera {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-body.portada .heroi {
   background: transparent !important;
   box-shadow: none !important;
 }
