@@ -100,19 +100,28 @@ correctament.
 </p>
     </article>
     <article class="apartat" id="apartat2">
-      <h2>2. Configuració de xarxa bàsica</h2>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-         ut aliquip ex ea commodo consequat. La configuració de xarxa és
-         <strong>imprescindible</strong> per poder actualitzar el sistema i
-         instal·lar programari nou.</p>
-      <ul>
-        <li>Comprovar l'adreça IP assignada amb <code>ip a</code>.</li>
-        <li>Configurar una IP estàtica si el servei ho requereix.</li>
-        <li>Verificar la connectivitat amb <code>ping</code>.</li>
-      </ul>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      
+ <h2>2. Configuració de xarxa bàsica</h2>
+
+<p>
+Per comprovar la configuració de xarxa de la màquina virtual, utilitzem
+l'ordre <code>ip a</code>. La interfície <code>enp0s3</code> té assignada
+l'adreça IP <code>10.0.2.15/24</code>.
+</p>
+
+<img src="../img/ip.png"
+     alt="Comprovació de l'adreça IP amb l'ordre ip a">
+
+<p>
+A continuació, utilitzem l'ordre <code>ping -c 4 google.com</code>
+per comprovar que la màquina virtual té connexió a Internet.
+S'han enviat 4 paquets i s'han rebut els 4 correctament, amb un
+0% de pèrdua de paquets.
+</p>
+
+<img src="../img/ping.png"
+     alt="Comprovació de la connexió a Internet amb ping">
+     
       <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
     </article>
     <article class="apartat" id="apartat3">
