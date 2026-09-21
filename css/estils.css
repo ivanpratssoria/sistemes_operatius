@@ -246,6 +246,31 @@ footer.peu .autoria strong { color: var(--tinta); }
   text-align: left;
   background: var(--fons);
 }
+/* Fons graffiti a tota la portada */
+
+body.portada {
+  background: url("../img/imagen.png") center center / cover fixed no-repeat;
+  min-height: 100vh;
+}
+
+body.portada .hero {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+body.portada .panell.portada-hero {
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: none;
+}
+
+body.portada main,
+body.portada footer {
+  background: transparent;
+}
+
+body.portada footer,
+body.portada footer strong {
+  color: white;
+}
 .bloc-llicencia h3 { margin: 0 0 8px; font-size: 1rem; color: var(--mari); }
 .bloc-llicencia p { margin: 6px 0; font-size: 0.92rem; }
 .bloc-llicencia .badge-cc { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
