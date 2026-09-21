@@ -107,6 +107,10 @@ main { padding-bottom: 50px; }
   position: relative;
   z-index: 1;
 }
+.panell.portada-hero {
+  background: url("../img/imagen.png") center / cover no-repeat;
+  min-height: 100vh;
+}
 
 .fitxa-alumne {
   display: inline-block;
