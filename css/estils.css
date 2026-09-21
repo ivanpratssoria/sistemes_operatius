@@ -47,7 +47,7 @@ a:hover { text-decoration: underline; }
 
 /* ---------- Capçalera / hero (present a totes les pàgines) ---------- */
 .hero {
-  background: linear-gradient(125deg, var(--mari) 0%, var(--teal) 55%, var(--ambre) 100%);
+  background: transparent;(125deg, var(--mari) 0%, var(--teal) 55%, var(--ambre) 100%);
   padding-bottom: 60px;
   color: var(--blanc);
 }
@@ -283,6 +283,10 @@ body.portada .panell.portada-hero {
 body.portada .hero,
 body.portada .heroe,
 body.portada .capcalera {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+body.portada .heroi {
   background: transparent !important;
   box-shadow: none !important;
 }
