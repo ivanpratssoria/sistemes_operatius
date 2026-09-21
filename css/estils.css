@@ -30,7 +30,7 @@ body {
 
 .portada-hero {
     text-align: center;
-    background-image: url("../imagen/imagen.png");
+    background-image: url("../img/imagen.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
