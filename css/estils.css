@@ -253,9 +253,6 @@ body.portada {
   min-height: 100vh;
 }
 
-body.portada .hero {
-  background: rgba(0, 0, 0, 0.35);
-}
 
 body.portada .panell.portada-hero {
   background: rgba(0, 0, 0, 0);
