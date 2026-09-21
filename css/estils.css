@@ -100,13 +100,13 @@ main { padding-bottom: 50px; }
 
 /* ---------- Portada ---------- */
 .portada-hero { text-align: center; }
-.portada-hero img.imatge-portada {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 22px;
+.portada {
+    background-image: url("../imagen/portada.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
-
 .fitxa-alumne {
   display: inline-block;
   background: var(--fons);
