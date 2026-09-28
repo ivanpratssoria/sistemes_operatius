@@ -119,6 +119,49 @@ correctament.
 
 <img src="../img/ip-a.png"
      alt="Resultat de la comanda ip a">
+
+      <h3>2.2 Configuració d'una IP estàtica</h3>
+
+<p>
+    Per configurar una adreça IP estàtica, accedim a la configuració
+    de xarxa d'Ubuntu i seleccionem el mètode IPv4
+    <strong>Manual</strong>.
+</p>
+
+<p>S'han configurat els següents valors:</p>
+
+<ul>
+    <li>Adreça IP: <strong>192.168.201.108</strong></li>
+    <li>Màscara de xarxa: <strong>255.255.255.0</strong></li>
+    <li>Passarel·la: <strong>192.168.201.1</strong></li>
+    <li>DNS: <strong>8.8.8.8</strong></li>
+</ul>
+
+<img src="../img/ip-estatica-interficie.png"
+     alt="Configuració manual de l'adreça IPv4">
+
+<p>
+    Després d'aplicar la configuració, comprovem des del terminal
+    que l'adreça IP s'ha configurat correctament:
+</p>
+
+<pre><code>ip a</code></pre>
+
+<p>
+    Finalment, comprovem la comunicació amb la porta d'enllaç
+    i la connexió a Internet:
+</p>
+
+<pre><code>ping -c 4 192.168.201.1
+ping -c 4 google.com</code></pre>
+
+<p>
+    Les dues proves retornen un 0% de pèrdua de paquets,
+    confirmant que la configuració de xarxa funciona correctament.
+</p>
+
+<img src="../img/comprovacio-ip-estatica.png"
+     alt="Comprovació de la IP estàtica i connectivitat">
     </article>
     <article class="apartat" id="apartat3">
       <h2>3. Creació d'usuaris i grups</h2>
