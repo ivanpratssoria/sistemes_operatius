@@ -101,14 +101,24 @@ correctament.
       
  <h2>2. Configuració de xarxa bàsica</h2>
 
+<h3>2.1 Comprovació de la configuració de xarxa</h3>
 
-     2. Configuració de xarxa bàsica
+<p>
+    Primer comprovem la configuració actual de la xarxa executant
+    la següent comanda:
+</p>
 
-     2.1 Comprovació de la configuració de xarxa
+<pre><code>ip a</code></pre>
 
-     Executem:
-     bash
-     ip a
+<p>
+    Aquesta comanda mostra les interfícies de xarxa disponibles i
+    les adreces IP assignades. En el nostre cas, la interfície activa
+    és <strong>enp0s31f6</strong> i té assignada l'adreça IP
+    <strong>192.168.201.108</strong>.
+</p>
+
+<img src="../img/ip-a.png"
+     alt="Resultat de la comanda ip a">
     </article>
     <article class="apartat" id="apartat3">
       <h2>3. Creació d'usuaris i grups</h2>
