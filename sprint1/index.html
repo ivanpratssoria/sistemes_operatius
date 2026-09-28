@@ -162,6 +162,57 @@ ping -c 4 google.com</code></pre>
 
 <img src="../img/comprovacio-ip-estatica.png"
      alt="Comprovació de la IP estàtica i connectivitat">
+<h3>2.3 Verificació de la connectivitat</h3>
+
+<p>
+    Una vegada configurada la xarxa, comprovem que existeix
+    connectivitat tant amb la xarxa local com amb Internet.
+    Per fer aquestes comprovacions utilitzem la comanda
+    <code>ping</code>.
+</p>
+
+<h4>Ping a la porta d'enllaç</h4>
+
+<p>
+    Primer comprovem la comunicació amb la porta d'enllaç
+    <strong>192.168.201.1</strong> executant:
+</p>
+
+<pre><code>ping -c 4 192.168.201.1</code></pre>
+
+<p>
+    L'opció <code>-c 4</code> indica que s'envien quatre paquets.
+    El resultat mostra que s'han enviat 4 paquets i s'han rebut
+    els 4, amb un <strong>0% de pèrdua de paquets</strong>.
+    Per tant, la comunicació amb la xarxa local funciona correctament.
+</p>
+
+<img src="../img/ping.png"
+     alt="Ping a la porta d'enllaç">
+
+<h4>Ping a Google</h4>
+
+<p>
+    A continuació comprovem la connexió a Internet i la resolució
+    de noms DNS fent un ping al domini de Google:
+</p>
+
+<pre><code>ping -c 4 google.com</code></pre>
+
+<p>
+    El sistema resol correctament el domini <code>google.com</code>
+    i rep resposta als quatre paquets enviats, amb un
+    <strong>0% de pèrdua de paquets</strong>.
+    Això confirma que tenim connexió a Internet i que el servei
+    de resolució DNS funciona correctament.
+</p>
+
+<img src="../img/ping-google.png"
+     alt="Ping a Google">
+
+
+
+      
     </article>
     <article class="apartat" id="apartat3">
       <h2>3. Creació d'usuaris i grups</h2>
