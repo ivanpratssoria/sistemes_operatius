@@ -99,7 +99,7 @@ correctament.
 </p>
 
 <p class="indice-retorn">
-  <a href="#index-apartaments">↑ Tornar a l'índex</a>
+  <a href="#index-apartats">↑ Tornar a l'índex</a>
 </p>
     </article>
     <article class="apartat" id="apartat2">
@@ -219,247 +219,33 @@ ping -c 4 google.com</code></pre>
 
       
     </article>
-    <article class="apartat" id="apartat3">
-<article class="apartat" id="apartat-comandes">
-
-    <h2>Pràctica de comandes Linux</h2>
-
-    <p>
-        En aquesta pràctica he treballat amb diferents comandes de Linux
-        des del terminal. He practicat la navegació entre directoris,
-        la creació i gestió de fitxers i carpetes, la compressió de fitxers,
-        els permisos d'administrador, la redirecció de la sortida de comandes
-        i l'ús de l'historial.
-    </p>
-
-
-    <h3>1. Comandes bàsiques i navegació</h3>
-
-    <p>
-        Primer he utilitzat comandes bàsiques per saber en quin directori
-        em trobo, veure el seu contingut i moure'm entre diferents directoris.
-        També he consultat el manual de Linux per obtenir informació sobre
-        les comandes.
-    </p>
-
-    <pre><code>pwd
-ls
-ls -la
-cd /etc
-pwd
-cd ~
-man ls
-cp --help
-clear</code></pre>
-
-    <img src="../img/comandes-basiques.png"
-         alt="Comandes bàsiques i navegació pel terminal">
-
-
-    <h3>2. Creació de carpetes i fitxers</h3>
-
-    <p>
-        He creat el directori <code>practiques</code> i dins d'aquest
-        he creat les carpetes <code>docs</code>, <code>imatges</code>
-        i <code>copies</code>. També he creat diferents fitxers amb
-        la comanda <code>touch</code>.
-    </p>
-
-    <pre><code>mkdir practiques
-cd practiques
-mkdir docs imatges copies
-touch nota1.txt nota2.txt foto.png</code></pre>
-
-    <p>
-        Després he editat el fitxer <code>nota1.txt</code> amb Nano,
-        hi he escrit tres línies i he utilitzat <code>cat</code> per
-        comprovar-ne el contingut.
-    </p>
-
-    <pre><code>nano nota1.txt
-cat nota1.txt</code></pre>
-
-    <img src="../img/creacio-fitxers.png"
-         alt="Creació de carpetes i fitxers">
-
-
-    <h3>3. Copiar, reanomenar i moure fitxers</h3>
-
-    <p>
-        A continuació he utilitzat <code>cp</code> per copiar un fitxer
-        i <code>mv</code> per reanomenar i moure fitxers entre directoris.
-        També he utilitzat <code>*.txt</code> per seleccionar tots els
-        fitxers de text.
-    </p>
-
-    <pre><code>gedit nota2.txt
-cp nota1.txt copies/
-mv nota2.txt resum.txt
-mv foto.png imatges/
-mv *.txt docs/
-ls -R</code></pre>
-
-    <p>
-        Amb <code>ls -R</code> he comprovat l'estructura resultant i
-        la ubicació dels diferents fitxers.
-    </p>
-
-    <img src="../img/moure-fitxers.png"
-         alt="Còpia i moviment de fitxers">
-
-
-    <h3>4. Rutes, eliminació i compressió</h3>
-
-    <p>
-        He practicat la navegació utilitzant rutes i he comprovat la
-        ruta absoluta del directori actual amb <code>pwd</code>.
-        També he eliminat un fitxer i un directori.
-    </p>
-
-    <pre><code>cd ~/practiques/docs
-pwd
-cd ~/practiques
-rm imatges/foto.png
-rm -r copies</code></pre>
-
-    <p>
-        Després he utilitzat l'operador <code>&gt;</code> per guardar
-        el resultat de la comanda <code>ls</code> dins d'un fitxer.
-        Finalment, he comprimit els fitxers de text del directori
-        <code>docs</code> en un arxiu ZIP.
-    </p>
-
-    <pre><code>ls &gt; llista.txt
-cat llista.txt
-zip notes.zip docs/*.txt</code></pre>
-
-    <img src="../img/rutes-compressio.png"
-         alt="Rutes, eliminació i compressió de fitxers">
-
-
-    <h3>5. Permisos i usuari root</h3>
-
-    <p>
-        He intentat accedir al directori <code>/root</code> com a
-        usuari normal i el sistema ha denegat l'accés per falta de
-        permisos. Després he repetit l'operació utilitzant
-        <code>sudo</code>.
-    </p>
-
-    <pre><code>ls /root
-sudo ls /root</code></pre>
-
-    <p>
-        També he utilitzat <code>sudo su</code> per passar temporalment
-        a l'usuari root. Amb <code>whoami</code> he comprovat que
-        l'usuari actual era root i finalment he tornat al meu usuari
-        normal amb <code>exit</code>.
-    </p>
-
-    <pre><code>sudo su
-whoami
-exit</code></pre>
-
-    <img src="../img/permisos-root.png"
-         alt="Permisos d'administrador i usuari root">
-
-
-    <h3>6. Informació del sistema i redireccions</h3>
-
-    <p>
-        He creat els directoris <code>repte/dades</code> i
-        <code>repte/backup</code>. Després he guardat informació
-        del sistema dins del fitxer <code>sistema.txt</code>.
-    </p>
-
-    <pre><code>mkdir -p repte/dades repte/backup
-uname -a &gt; repte/dades/sistema.txt
-date &gt;&gt; repte/dades/sistema.txt
-who &gt;&gt; repte/dades/sistema.txt</code></pre>
-
-    <p>
-        L'operador <code>&gt;</code> crea o substitueix el contingut
-        del fitxer, mentre que <code>&gt;&gt;</code> afegeix informació
-        al final sense eliminar el contingut anterior.
-    </p>
-
-    <p>
-        He visualitzat el resultat amb <code>cat</code>, he utilitzat
-        <code>grep</code> per buscar la paraula Linux i finalment he
-        creat una còpia del fitxer dins del directori de backup.
-    </p>
-
-    <pre><code>cat repte/dades/sistema.txt
-grep Linux repte/dades/sistema.txt
-cp repte/dades/sistema.txt repte/backup/sistema_copia.txt
-ls -R repte</code></pre>
-
-    <img src="../img/informacio-sistema.png"
-         alt="Informació del sistema i redirecció de comandes">
-
-
-    <h3>7. Historial de comandes</h3>
-
-    <p>
-        Per acabar la pràctica he utilitzat l'historial del terminal
-        per guardar les últimes 15 comandes executades dins del fitxer
-        <code>comandes.txt</code>.
-    </p>
-
-    <pre><code>history | tail -15 &gt; comandes.txt
-cat comandes.txt</code></pre>
-
-    <p>
-        Amb <code>cat</code> he comprovat que les últimes 15 comandes
-        s'han guardat correctament al fitxer.
-    </p>
-
-    <img src="../img/historial-comandes.png"
-         alt="Últimes 15 comandes de l'historial">
-
-
-    <h3>8. Tancament del terminal</h3>
-
-    <p>
-        Finalment, he utilitzat la comanda <code>exit</code> per
-        tancar la sessió del terminal.
-    </p>
-
-    <pre><code>exit</code></pre>
-
-    <p><a href="#index">↑ Tornar a l'índex</a></p>
-
-</article>
-
-
-
-      
-      <h2>3. Creació d'usuaris i grups</h2>
-      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-         blanditiis praesentium voluptatum deleniti atque corrupti. Cada
-         usuari nou s'hauria d'assignar al <strong>grup mínim necessari</strong>
-         segons les tasques que ha de fer.</p>
-      <img src="../img/exemple.svg" alt="Exemple de captura de pantalla de la gestió d'usuaris">
-      <ul>
-        <li>Crear l'usuari amb <code>useradd</code>.</li>
-        <li>Assignar contrasenya amb <code>passwd</code>.</li>
-        <li>Afegir l'usuari als grups necessaris amb <code>usermod -aG</code>.</li>
-      </ul>
+    <article class="apartat" id="apartat2">
+      <h2>2. Punts de restauració</h2>
+      <p>Afegeix aquí el contingut i les captures de la pràctica de punts de restauració.</p>
       <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
     </article>
+
+    <article class="apartat" id="apartat3">
+      <h2>3. Particions</h2>
+      <p>Afegeix aquí el contingut i les captures de la pràctica de particions.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+
     <article class="apartat" id="apartat4">
-      <h2>4. Comprovació final</h2>
-      <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero
-         tempore, cum soluta nobis est eligendi optio cumque nihil impedit.
-         Abans de donar per acabat el sprint, revisa aquest resum:</p>
-      <ul>
-        <li>El sistema arrenca sense errors.</li>
-        <li>La xarxa respon correctament als <em>pings</em>.</li>
-        <li><strong>Els usuaris i grups creats coincideixen amb l'enunciat.</strong></li>
-      </ul>
-      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-         fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-         sequi nesciunt.</p>
+      <h2>4. Virtualització</h2>
+      <p>Afegeix aquí el contingut i les captures de la pràctica de virtualització.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+
+    <article class="apartat" id="apartat5">
+      <h2>5. Gestors d'arrencada</h2>
+      <p>Afegeix aquí el contingut i les captures de la pràctica de gestors d'arrencada.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+
+    <article class="apartat" id="apartat8">
+      <h2>8. Instal·lacions aplicacions</h2>
+      <p>Afegeix aquí el contingut i les captures de la pràctica d'instal·lació d'aplicacions.</p>
       <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
     </article>
   </section>
