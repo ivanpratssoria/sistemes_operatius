@@ -546,13 +546,181 @@ tancar la sessió del terminal.
 
 <article class="apartat" id="apartat8">
 
-<h2>8. Instal·lacions aplicacions</h2>
+  <h2>8. Instal·lacions aplicacions</h2>
 
-<p><em>Apartat pendent de realitzar.</em></p>
+  <p>
+    En aquest apartat realitzarem la instal·lació de l'aplicació
+    <strong>Pacman</strong> a Ubuntu. Primer comprovarem la versió del
+    sistema, després buscarem i descarregarem el paquet corresponent,
+    l'instal·larem, comprovarem el seu funcionament i, finalment,
+    el desinstal·larem.
+  </p>
 
-<p class="tornar-index">
-  <a href="#index-apartats">↑ Tornar a l'índex</a>
-</p>
+
+  <h3>8.1. Comprovació de la versió d'Ubuntu</h3>
+
+  <p>
+    Abans de descarregar el paquet, comprovem quina versió d'Ubuntu
+    tenim instal·lada. Per fer-ho executem la següent ordre al terminal:
+  </p>
+
+  <pre><code>lsb_release -a</code></pre>
+
+  <p>
+    El resultat ens indica que estem utilitzant
+    <strong>Ubuntu 24.04.5 LTS</strong>, amb nom en clau
+    <strong>Noble</strong>. Aquesta informació és important per poder
+    descarregar un paquet compatible amb la nostra versió del sistema.
+  </p>
+
+  <img src="../img/8_1_version_ubuntu.png"
+       alt="Comprovació de la versió d'Ubuntu">
+
+
+  <h3>8.2. Cerca del paquet Pacman</h3>
+
+  <p>
+    A continuació accedim a la pàgina web <strong>pkgs.org</strong>
+    i busquem el paquet <strong>pacman</strong>.
+  </p>
+
+  <p>
+    Com que el nostre sistema és Ubuntu 24.04 LTS de 64 bits,
+    busquem la versió corresponent a
+    <strong>Ubuntu 24.04 LTS (Noble Numbat) - amd64</strong>.
+    El paquet que utilitzarem és
+    <code>pacman_10-19_amd64.deb</code>.
+  </p>
+
+  <img src="../img/8_2_busqueda_pacman.png"
+       alt="Cerca del paquet Pacman a pkgs.org">
+
+
+  <h3>8.3. Descàrrega del paquet</h3>
+
+  <p>
+    Entrem a la pàgina del paquet <strong>pacman</strong>.
+    En aquesta pàgina podem consultar informació sobre el paquet,
+    com ara la seva arquitectura, les dependències necessàries
+    i els enllaços de descàrrega.
+  </p>
+
+  <p>
+    A l'apartat <strong>Download</strong> localitzem el
+    <strong>Binary Package</strong> i descarreguem el fitxer
+    <code>.deb</code>.
+  </p>
+
+  <img src="../img/8_3_paquet_pacman.png"
+       alt="Informació i descàrrega del paquet Pacman">
+
+  <p>
+    Una vegada descarregat, guardem el paquet dins d'una carpeta
+    anomenada <strong>pacman</strong> situada a l'Escriptori.
+    Accedim a aquesta carpeta des del terminal i utilitzem
+    l'ordre <code>ls</code> per comprovar que el fitxer està disponible.
+  </p>
+
+  <pre><code>cd ~/Escriptori/pacman
+ls</code></pre>
+
+  <p>
+    Podem veure que el paquet
+    <code>pacman_10-19_amd64 (1).deb</code>
+    es troba correctament dins de la carpeta.
+  </p>
+
+  <img src="../img/8_4_pacman_descarregat.png"
+       alt="Paquet Pacman descarregat">
+
+
+  <h3>8.4. Instal·lació de Pacman</h3>
+
+  <p>
+    Amb el paquet descarregat, procedim a instal·lar-lo des del
+    terminal mitjançant <code>apt</code> i utilitzant permisos
+    d'administrador.
+  </p>
+
+  <pre><code>sudo apt install "./pacman_10-19_amd64 (1).deb"</code></pre>
+
+  <p>
+    Quan finalitza la instal·lació, comprovem que Pacman està
+    instal·lat correctament amb la següent ordre:
+  </p>
+
+  <pre><code>dpkg -l | grep pacman</code></pre>
+
+  <p>
+    El resultat mostra el paquet <strong>pacman</strong>,
+    la versió <strong>10-19</strong> i l'arquitectura
+    <strong>amd64</strong>. Això confirma que la instal·lació
+    s'ha realitzat correctament.
+  </p>
+
+  <img src="../img/8_5_installacio_comprovacio_pacman.png"
+       alt="Instal·lació i comprovació de Pacman">
+
+
+  <h3>8.5. Execució de Pacman</h3>
+
+  <p>
+    Una vegada instal·lat el programa, comprovem que funciona
+    correctament. Per executar-lo escrivim al terminal:
+  </p>
+
+  <pre><code>pacman</code></pre>
+
+  <p>
+    En executar l'ordre s'obre el joc Pacman, fet que confirma
+    que l'aplicació s'ha instal·lat i funciona correctament.
+  </p>
+
+  <img src="../img/8_6_execucio_pacman.png"
+       alt="Execució del joc Pacman">
+
+
+  <h3>8.6. Desinstal·lació de Pacman</h3>
+
+  <p>
+    Finalment, procedim a desinstal·lar l'aplicació.
+    Per eliminar el paquet utilitzem la següent ordre:
+  </p>
+
+  <pre><code>sudo apt remove pacman</code></pre>
+
+  <p>
+    Després de completar la desinstal·lació, tornem a comprovar
+    si el paquet està instal·lat executant:
+  </p>
+
+  <pre><code>dpkg -l | grep pacman</code></pre>
+
+  <p>
+    En aquesta ocasió l'ordre no mostra cap resultat.
+    Això confirma que <strong>Pacman ha estat desinstal·lat
+    correctament del sistema</strong>.
+  </p>
+
+  <img src="../img/8_7_desinstallacio_comprovacio_pacman.png"
+       alt="Desinstal·lació i comprovació de Pacman">
+
+
+  <h3>8.7. Conclusió</h3>
+
+  <p>
+    En aquesta pràctica hem après a comprovar la versió d'Ubuntu,
+    buscar i descarregar un paquet <code>.deb</code> compatible
+    amb el nostre sistema, instal·lar-lo des del terminal i
+    comprovar que funciona correctament. Finalment, també hem
+    après a desinstal·lar el paquet i verificar que s'ha eliminat
+    correctament del sistema.
+  </p>
+
+
+  <p class="tornar-index">
+    <a href="#index-apartats">↑ Tornar a l'índex</a>
+  </p>
 
 </article>
 
