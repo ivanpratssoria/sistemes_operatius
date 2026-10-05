@@ -724,6 +724,142 @@ ls</code></pre>
   <img src="../img/8_7_desinstallacio_comprovacio_pacman.png"
        alt="Desinstal·lació i comprovació de Pacman">
 
+  <h3>8.8. Instal·lació de VLC amb DPKG</h3>
+
+  <p>
+    En aquest apartat he instal·lat l'aplicació
+    <strong>VLC Media Player</strong> utilitzant
+    <strong>DPKG</strong>, una eina que permet instal·lar
+    paquets <code>.deb</code> directament des del terminal.
+  </p>
+
+
+  <h3>8.8.1. Descàrrega del paquet VLC</h3>
+
+  <p>
+    Primer he comprovat que el sistema utilitza Ubuntu 24.04
+    amb arquitectura <code>amd64</code>. Després he buscat
+    a pkgs.org el paquet de VLC compatible amb aquesta versió
+    del sistema.
+  </p>
+
+  <p>
+    He seleccionat i descarregat el paquet:
+    <code>vlc_3.0.20-3build6_amd64.deb</code>.
+  </p>
+
+  <img src="../img/8_8_descarrega_vlc_dpkg.png"
+       alt="Descàrrega del paquet DEB de VLC">
+
+
+  <h3>8.8.2. Instal·lació de VLC amb DPKG</h3>
+
+  <p>
+    Una vegada descarregat el paquet, l'he guardat dins
+    d'una carpeta anomenada <code>vlc</code> a l'Escriptori.
+    Des del terminal he accedit a aquesta carpeta i he
+    comprovat el contingut amb:
+  </p>
+
+  <pre><code>cd ~/Escriptori/vlc
+ls</code></pre>
+
+  <p>
+    A continuació he intentat instal·lar VLC utilitzant
+    directament <strong>DPKG</strong>:
+  </p>
+
+  <pre><code>sudo dpkg -i vlc_3.0.20-3build6_amd64.deb</code></pre>
+
+  <p>
+    Durant la instal·lació, DPKG ha detectat que faltaven
+    diverses dependències necessàries per poder configurar
+    VLC correctament.
+  </p>
+
+  <img src="../img/8_9_installacio_vlc_dpkg_dependencias.png"
+       alt="Instal·lació de VLC amb DPKG i error de dependències">
+
+
+  <h3>8.8.3. Resolució de dependències</h3>
+
+  <p>
+    Per solucionar les dependències que faltaven he executat:
+  </p>
+
+  <pre><code>sudo apt --fix-broken install</code></pre>
+
+  <p>
+    Aquesta ordre ha instal·lat les dependències necessàries
+    i ha completat correctament la configuració de VLC.
+  </p>
+
+  <img src="../img/8_10_resolucio_dependencies_vlc.png"
+       alt="Resolució de les dependències necessàries per a VLC">
+
+
+  <h3>8.8.4. Comprovació de la instal·lació</h3>
+
+  <p>
+    Una vegada finalitzada la instal·lació, he comprovat
+    la versió de VLC instal·lada amb:
+  </p>
+
+  <pre><code>vlc --version</code></pre>
+
+  <p>
+    El terminal mostra que s'ha instal·lat
+    <strong>VLC Media Player 3.0.20 Vetinari</strong>,
+    confirmant que la instal·lació s'ha completat.
+  </p>
+
+  <img src="../img/8_11_comprovacio_vlc_dpkg.png"
+       alt="Comprovació de la versió de VLC instal·lada">
+
+
+  <h3>8.8.5. Execució de VLC</h3>
+
+  <p>
+    Per comprovar que l'aplicació funciona correctament,
+    l'he executada des del terminal amb:
+  </p>
+
+  <pre><code>vlc</code></pre>
+
+  <p>
+    VLC s'ha iniciat correctament i s'ha mostrat la seva
+    interfície gràfica.
+  </p>
+
+  <img src="../img/8_12_execucio_vlc.png"
+       alt="Execució de VLC després de la instal·lació">
+
+
+  <h3>8.8.6. Desinstal·lació de VLC amb DPKG</h3>
+
+  <p>
+    Finalment, he desinstal·lat el paquet principal de VLC
+    utilitzant DPKG amb la següent ordre:
+  </p>
+
+  <pre><code>sudo dpkg -r vlc</code></pre>
+
+  <p>
+    Després he utilitzat:
+  </p>
+
+  <pre><code>dpkg -l | grep vlc</code></pre>
+
+  <p>
+    La comprovació mostra que el paquet principal
+    <code>vlc</code> ja no està instal·lat. Encara apareixen
+    alguns paquets relacionats amb VLC perquè són dependències
+    que s'havien instal·lat durant el procés.
+  </p>
+
+  <img src="../img/8_13_desinstallacio_comprovacio_vlc_dpkg.png"
+       alt="Desinstal·lació i comprovació de VLC amb DPKG">
+  
 
   <h3>8.7. Conclusió</h3>
 
