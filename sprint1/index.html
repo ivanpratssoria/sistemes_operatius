@@ -863,98 +863,78 @@ ls</code></pre>
 <h3>8.9. Instal·lació de Dropbox amb Aptitude</h3>
 
 <p>
-  En aquest apartat he utilitzat <strong>Aptitude</strong> com a gestor
-  de paquets per instal·lar una aplicació. En aquest cas he instal·lat
-  <strong>Dropbox</strong>, concretament el paquet
-  <code>nautilus-dropbox</code>.
-</p>
-
-<h3>8.9.1. Instal·lació d'Aptitude</h3>
-
-<p>
-  Primer he comprovat si Aptitude estava disponible al sistema.
-  Com que no estava instal·lat, l'he instal·lat amb la següent ordre:
+  En aquest apartat he utilitzat <strong>Aptitude</strong> com a tercer
+  mètode d'instal·lació d'aplicacions. Com que Aptitude no estava
+  instal·lat al sistema, primer l'he instal·lat amb:
 </p>
 
 <pre><code>sudo apt install aptitude</code></pre>
 
 <p>
-  Una vegada instal·lat Aptitude, ja el podia utilitzar com a gestor
-  de paquets per realitzar la instal·lació de Dropbox.
+  Una vegada disponible, he utilitzat Aptitude per instal·lar
+  <strong>Dropbox</strong>, concretament el paquet
+  <code>nautilus-dropbox</code>.
 </p>
 
-<h3>8.9.2. Instal·lació de Dropbox amb Aptitude</h3>
+
+<h3>8.9.1. Instal·lació de Dropbox</h3>
 
 <p>
   He instal·lat la integració de Dropbox per a Nautilus utilitzant
-  directament <strong>Aptitude</strong> amb la següent ordre:
+  Aptitude amb la següent ordre:
 </p>
 
 <pre><code>sudo aptitude install nautilus-dropbox</code></pre>
 
 <p>
-  Durant el procés s'han instal·lat i configurat els components
-  necessaris. En finalitzar, el sistema ha indicat que la instal·lació
-  de Dropbox s'havia completat correctament.
+  Aptitude ha gestionat la instal·lació del paquet i, en finalitzar
+  el procés, el sistema ha indicat que la instal·lació de Dropbox
+  s'havia completat correctament.
 </p>
 
 <img src="../img/8_14_installacio_dropbox_aptitude.png"
-     alt="Instal·lació de Dropbox utilitzant Aptitude">
+     alt="Instal·lació de Dropbox amb Aptitude">
 
-<h3>8.9.3. Comprovació de la instal·lació</h3>
+
+<h3>8.9.2. Comprovació de la instal·lació</h3>
 
 <p>
-  Després de la instal·lació he comprovat que el paquet
-  <code>nautilus-dropbox</code> estava correctament instal·lat
-  utilitzant:
+  Per comprovar que el paquet s'havia instal·lat correctament,
+  he executat:
 </p>
 
 <pre><code>dpkg -l | grep nautilus-dropbox</code></pre>
 
 <p>
-  El resultat mostra l'estat <code>ii</code>, que indica que el paquet
-  està instal·lat correctament al sistema.
+  El resultat mostra el paquet <code>nautilus-dropbox</code> amb
+  l'estat <code>ii</code>, que indica que està instal·lat
+  correctament al sistema.
 </p>
 
 <img src="../img/8_15_comprovacio_dropbox_aptitude.png"
-     alt="Comprovació de la instal·lació de Dropbox">
+     alt="Comprovació de Dropbox instal·lat">
 
-<h3>8.9.4. Inici de Dropbox</h3>
 
-<p>
-  Després he iniciat Dropbox des del terminal. En el primer inici,
-  el sistema ha indicat que era necessari instal·lar el daemon de
-  Dropbox.
-</p>
-
-<pre><code>dropbox start -i</code></pre>
+<h3>8.9.3. Desinstal·lació de Dropbox</h3>
 
 <p>
-  Una vegada completada aquesta instal·lació, Dropbox ha quedat
-  preparat per executar-se i vincular l'ordinador amb un compte.
-  No ha estat necessari vincular cap compte per comprovar la
-  instal·lació del paquet.
-</p>
-
-<h3>8.9.5. Desinstal·lació amb Aptitude</h3>
-
-<p>
-  Finalment, he desinstal·lat el paquet de Dropbox utilitzant
-  també <strong>Aptitude</strong>:
+  Finalment, he desinstal·lat Dropbox utilitzant també Aptitude
+  amb la següent ordre:
 </p>
 
 <pre><code>sudo aptitude remove nautilus-dropbox</code></pre>
 
 <p>
-  Per comprovar el resultat de la desinstal·lació he executat:
+  Després de la desinstal·lació, he tornat a comprovar l'estat
+  del paquet amb:
 </p>
 
 <pre><code>dpkg -l | grep nautilus-dropbox</code></pre>
 
 <p>
-  Després de la desinstal·lació, el paquet apareix amb l'estat
-  <code>rc</code>. Això indica que el paquet ja no està instal·lat,
-  encara que poden quedar alguns fitxers de configuració al sistema.
+  El paquet apareix amb l'estat <code>rc</code>. Això indica que
+  el paquet ja no està instal·lat, encara que poden quedar alguns
+  fitxers de configuració al sistema.
 </p>
 
 <img src="../img/8_16_desinstallacio_comprovacio_dropbox_aptitude.png"
