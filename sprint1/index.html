@@ -43,13 +43,10 @@
 
   <tbody>
     <tr><td>1</td><td><a href="#apartat1">Virtualització</a></td></tr>
-    <tr><td>2</td><td><a href="#apartat2">Punts de restauració</a></td></tr>
-    <tr><td>3</td><td><a href="#apartat3">Particions</a></td></tr>
-    <tr><td>4</td><td><a href="#apartat4">Instal·lació SO</a></td></tr>
-    <tr><td>5</td><td><a href="#apartat5">Gestors d'arrencada</a></td></tr>
-    <tr><td>6</td><td><a href="#apartat6">Xarxa bàsica</a></td></tr>
-    <tr><td>7</td><td><a href="#apartat7">Comandes generals</a></td></tr>
-    <tr><td>8</td><td><a href="#apartat8">Instal·lacions aplicacions</a></td></tr>
+    <tr><td>4</td><td><a href="#apartat2">Instal·lació SO</a></td></tr>
+    <tr><td>6</td><td><a href="#apartat3">Xarxa bàsica</a></td></tr>
+    <tr><td>7</td><td><a href="#apartat4">Comandes generals</a></td></tr>
+    <tr><td>8</td><td><a href="#apartat5">Instal·lacions aplicacions</a></td></tr>
   </tbody>
 </table>
 <!-- ================================================= -->
@@ -105,15 +102,15 @@ virtual sense afectar directament l'ordinador físic.
 </p>
 </article>
 <!-- ================================================= -->
-<!-- 4. INSTAL·LACIÓ SO                                -->
+<!-- 2. INSTAL·LACIÓ SO                                -->
 <!-- ================================================= -->
 
-<article class="apartat" id="apartat4">
+<article class="apartat" id="apartat2">
 
-<h2>4. Instal·lació SO</h2>
+<h2>2. Instal·lació SO</h2>
 
 <p>
-4.1 He seleccionat l'opció d'instal·lació manual per poder configurar
+2.1 He seleccionat l'opció d'instal·lació manual per poder configurar
 les particions del disc durant la instal·lació d'Ubuntu.
 </p>
 
@@ -122,7 +119,7 @@ les particions del disc durant la instal·lació d'Ubuntu.
 
 
 <p>
-4.2 He realitzat el particionament manual del disc, creant una partició
+2.2 He realitzat el particionament manual del disc, creant una partició
 de 25 GB per al sistema (/), una partició de 20 GB per a /home
 i una partició de 8,68 GB per a /swap.
 </p>
@@ -132,7 +129,7 @@ i una partició de 8,68 GB per a /swap.
 
 
 <p>
-4.3 Abans d'iniciar la instal·lació, he revisat la configuració i
+2.3 Abans d'iniciar la instal·lació, he revisat la configuració i
 les particions creades per comprovar que tot estava correcte.
 </p>
 
@@ -141,7 +138,7 @@ les particions creades per comprovar que tot estava correcte.
 
 
 <p>
-4.4 Una vegada finalitzada la instal·lació, el sistema Ubuntu s'ha iniciat
+2.4 Una vegada finalitzada la instal·lació, el sistema Ubuntu s'ha iniciat
 correctament.
 </p>
 
@@ -155,12 +152,12 @@ correctament.
 <!-- 6. XARXA BÀSICA                                   -->
 <!-- ================================================= -->
 
-<article class="apartat" id="apartat6">
+<article class="apartat" id="apartat3">
 
-<h2>6. Xarxa bàsica</h2>
+<h2>3. Xarxa bàsica</h2>
 
 
-<h3>6.1 Comprovació de la configuració de xarxa</h3>
+<h3>3.1 Comprovació de la configuració de xarxa</h3>
 
 <p>
 Primer comprovem la configuració actual de la xarxa executant
@@ -180,7 +177,7 @@ les adreces IP assignades. En el nostre cas, la interfície activa
      alt="Resultat de la comanda ip a">
 
 
-<h3>6.2 Configuració d'una IP estàtica</h3>
+<h3>3.2 Configuració d'una IP estàtica</h3>
 
 <p>
 Per configurar una adreça IP estàtica, accedim a la configuració
@@ -225,7 +222,7 @@ confirmant que la configuració de xarxa funciona correctament.
      alt="Comprovació de la IP estàtica i connectivitat">
 
 
-<h3>6.3 Verificació de la connectivitat</h3>
+<h3>3.3 Verificació de la connectivitat</h3>
 
 <p>
 Una vegada configurada la xarxa, comprovem que existeix
@@ -283,12 +280,12 @@ de resolució DNS funciona correctament.
 
 
 <!-- ================================================= -->
-<!-- 7. COMANDES GENERALS                              -->
+<!-- 4. COMANDES GENERALS                              -->
 <!-- ================================================= -->
 
-<article class="apartat" id="apartat7">
+<article class="apartat" id="apartat4">
 
-<h2>7. Comandes generals</h2>
+<h2>4. Comandes generals</h2>
 
 <p>
 En aquesta pràctica he treballat amb diferents comandes de Linux
@@ -299,7 +296,7 @@ i l'ús de l'historial.
 </p>
 
 
-<h3>7.1 Comandes bàsiques i navegació</h3>
+<h3>4.1 Comandes bàsiques i navegació</h3>
 
 <p>
 Primer he utilitzat comandes bàsiques per saber en quin directori
@@ -322,7 +319,7 @@ clear</code></pre>
      alt="Comandes bàsiques i navegació pel terminal">
 
 
-<h3>7.2 Creació de carpetes i fitxers</h3>
+<h3>4.2 Creació de carpetes i fitxers</h3>
 
 <p>
 He creat el directori <code>practiques</code> i dins d'aquest
@@ -349,7 +346,7 @@ cat nota1.txt</code></pre>
      alt="Creació de carpetes i fitxers">
 
 
-<h3>7.3 Copiar, reanomenar i moure fitxers</h3>
+<h3>4.3 Copiar, reanomenar i moure fitxers</h3>
 
 <p>
 A continuació he utilitzat <code>cp</code> per copiar un fitxer
@@ -374,7 +371,7 @@ la ubicació dels diferents fitxers.
      alt="Còpia i moviment de fitxers">
 
 
-<h3>7.4 Rutes, eliminació i compressió</h3>
+<h3>4.4 Rutes, eliminació i compressió</h3>
 
 <p>
 He practicat la navegació utilitzant rutes i he comprovat la
@@ -403,7 +400,7 @@ zip notes.zip docs/*.txt</code></pre>
      alt="Rutes, eliminació i compressió de fitxers">
 
 
-<h3>7.5 Permisos i usuari root</h3>
+<h3>4.5 Permisos i usuari root</h3>
 
 <p>
 He intentat accedir al directori <code>/root</code> com a
@@ -430,7 +427,7 @@ exit</code></pre>
      alt="Permisos d'administrador i usuari root">
 
 
-<h3>7.6 Informació del sistema i redireccions</h3>
+<h3>4.6 Informació del sistema i redireccions</h3>
 
 <p>
 He creat els directoris <code>repte/dades</code> i
@@ -464,7 +461,7 @@ ls -R repte</code></pre>
      alt="Informació del sistema i redirecció de comandes">
 
 
-<h3>7.7 Historial de comandes</h3>
+<h3>4.7 Historial de comandes</h3>
 
 <p>
 Per acabar la pràctica he utilitzat l'historial del terminal
@@ -484,7 +481,7 @@ s'han guardat correctament al fitxer.
      alt="Últimes 15 comandes de l'historial">
 
 
-<h3>7.8 Tancament del terminal</h3>
+<h3>4.8 Tancament del terminal</h3>
 
 <p>
 Finalment, he utilitzat la comanda <code>exit</code> per
@@ -501,12 +498,12 @@ tancar la sessió del terminal.
 
 
 <!-- ================================================= -->
-<!-- 8. INSTAL·LACIONS APLICACIONS                     -->
+<!-- 5. INSTAL·LACIONS APLICACIONS                     -->
 <!-- ================================================= -->
 
 <article class="apartat" id="apartat8">
 
-  <h2>8. Instal·lacions aplicacions</h2>
+  <h2>5. Instal·lacions aplicacions</h2>
 
   <p>
     En aquest apartat realitzarem la instal·lació de l'aplicació
@@ -517,7 +514,7 @@ tancar la sessió del terminal.
   </p>
 
 
-  <h3>8.1. Comprovació de la versió d'Ubuntu</h3>
+  <h3>5.1. Comprovació de la versió d'Ubuntu</h3>
 
   <p>
     Abans de descarregar el paquet, comprovem quina versió d'Ubuntu
@@ -537,7 +534,7 @@ tancar la sessió del terminal.
        alt="Comprovació de la versió d'Ubuntu">
 
 
-  <h3>8.2. Cerca del paquet Pacman</h3>
+  <h3>5.2. Cerca del paquet Pacman</h3>
 
   <p>
     A continuació accedim a la pàgina web <strong>pkgs.org</strong>
@@ -556,7 +553,7 @@ tancar la sessió del terminal.
        alt="Cerca del paquet Pacman a pkgs.org">
 
 
-  <h3>8.3. Descàrrega del paquet</h3>
+  <h3>5.3. Descàrrega del paquet</h3>
 
   <p>
     Entrem a la pàgina del paquet <strong>pacman</strong>.
@@ -594,7 +591,7 @@ ls</code></pre>
        alt="Paquet Pacman descarregat">
 
 
-  <h3>8.4. Instal·lació de Pacman</h3>
+  <h3>5.4. Instal·lació de Pacman</h3>
 
   <p>
     Amb el paquet descarregat, procedim a instal·lar-lo des del
@@ -622,7 +619,7 @@ ls</code></pre>
        alt="Instal·lació i comprovació de Pacman">
 
 
-  <h3>8.5. Execució de Pacman</h3>
+  <h3>5.5. Execució de Pacman</h3>
 
   <p>
     Una vegada instal·lat el programa, comprovem que funciona
@@ -640,7 +637,7 @@ ls</code></pre>
        alt="Execució del joc Pacman">
 
 
-  <h3>8.6. Desinstal·lació de Pacman</h3>
+  <h3>5.6. Desinstal·lació de Pacman</h3>
 
   <p>
     Finalment, procedim a desinstal·lar l'aplicació.
@@ -665,7 +662,7 @@ ls</code></pre>
   <img src="../img/8_7_desinstallacio_comprovacio_pacman.png"
        alt="Desinstal·lació i comprovació de Pacman">
 
-  <h3>8.8. Instal·lació de VLC amb DPKG</h3>
+  <h3>5.7. Instal·lació de VLC amb DPKG</h3>
 
   <p>
     En aquest apartat he instal·lat l'aplicació
@@ -675,7 +672,7 @@ ls</code></pre>
   </p>
 
 
-  <h3>8.8.1. Descàrrega del paquet VLC</h3>
+  <h3>5.7.1. Descàrrega del paquet VLC</h3>
 
   <p>
     Primer he comprovat que el sistema utilitza Ubuntu 24.04
@@ -693,7 +690,7 @@ ls</code></pre>
        alt="Descàrrega del paquet DEB de VLC">
 
 
-  <h3>8.8.2. Instal·lació de VLC amb DPKG</h3>
+  <h3>5.7.2. Instal·lació de VLC amb DPKG</h3>
 
   <p>
     Una vegada descarregat el paquet, l'he guardat dins
@@ -722,7 +719,7 @@ ls</code></pre>
        alt="Instal·lació de VLC amb DPKG i error de dependències">
 
 
-  <h3>8.8.3. Resolució de dependències</h3>
+  <h3>5.7.3. Resolució de dependències</h3>
 
   <p>
     Per solucionar les dependències que faltaven he executat:
@@ -739,7 +736,7 @@ ls</code></pre>
        alt="Resolució de les dependències necessàries per a VLC">
 
 
-  <h3>8.8.4. Comprovació de la instal·lació</h3>
+  <h3>5.7.4. Comprovació de la instal·lació</h3>
 
   <p>
     Una vegada finalitzada la instal·lació, he comprovat
@@ -758,7 +755,7 @@ ls</code></pre>
        alt="Comprovació de la versió de VLC instal·lada">
 
 
-  <h3>8.8.5. Execució de VLC</h3>
+  <h3>5.7.5. Execució de VLC</h3>
 
   <p>
     Per comprovar que l'aplicació funciona correctament,
@@ -776,7 +773,7 @@ ls</code></pre>
        alt="Execució de VLC després de la instal·lació">
 
 
-  <h3>8.8.6. Desinstal·lació de VLC amb DPKG</h3>
+  <h3>5.7.6. Desinstal·lació de VLC amb DPKG</h3>
 
   <p>
     Finalment, he desinstal·lat el paquet principal de VLC
@@ -803,7 +800,7 @@ ls</code></pre>
 
 <!-- INSTAL·LACIÓ AMB APTITUDE -->
 
-<h3>8.9. Instal·lació de Dropbox amb Aptitude</h3>
+<h3>5.8. Instal·lació de Dropbox amb Aptitude</h3>
 
 <p>
   En aquest apartat he utilitzat <strong>Aptitude</strong> com a tercer
@@ -822,7 +819,7 @@ ls</code></pre>
 <img src="../img/8_13_comprovacio_aptitude.png"
      alt="Comprovació de la instal·lació d'Aptitude">
 
-<h3>8.9.1. Instal·lació de Dropbox</h3>
+<h3>5.8.1. Instal·lació de Dropbox</h3>
 
 <p>
   He instal·lat la integració de Dropbox per a Nautilus utilitzant
@@ -841,7 +838,7 @@ ls</code></pre>
      alt="Instal·lació de Dropbox amb Aptitude">
 
 
-<h3>8.9.2. Comprovació de la instal·lació</h3>
+<h3>5.8.2. Comprovació de la instal·lació</h3>
 
 <p>
   Per comprovar que el paquet s'havia instal·lat correctament,
@@ -860,7 +857,7 @@ ls</code></pre>
      alt="Comprovació de Dropbox instal·lat">
 
 
-<h3>8.9.3. Desinstal·lació de Dropbox</h3>
+<h3>5.8.3. Desinstal·lació de Dropbox</h3>
 
 <p>
   Finalment, he desinstal·lat Dropbox utilitzant també Aptitude
