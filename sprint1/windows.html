@@ -4,681 +4,1041 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint 1 Windows</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fb;
-            color: #25364a;
-            margin: 0;
-            line-height: 1.7;
-        }
-
-        header {
-            background-color: #183b60;
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        main {
-            max-width: 950px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px #00000012;
-        }
-
-        h2 {
-            color: #183b60;
-            border-bottom: 2px solid #dce6f0;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #245780;
-            margin-top: 30px;
-        }
-
-        a {
-            color: #1765a3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .index a {
-            display: block;
-            padding: 8px 0;
-        }
-
-        .subapartat {
-            padding-left: 20px !important;
-        }
-
-        img {
-            display: block;
-            width: 100%;
-            max-width: 750px;
-            height: auto;
-            margin: 20px auto;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-        figure {
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        figcaption {
-            font-size: 14px;
-            color: #52677c;
-            margin-top: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th, td {
-            border: 1px solid #ccd8e4;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #dce9f5;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f5f8fc;
-        }
-
-        code {
-            background-color: #eaf0f6;
-            padding: 3px 6px;
-            border-radius: 4px;
-        }
-
-        .tornar {
-            display: inline-block;
-            margin-top: 15px;
-        }
-    </style>
+    <title>Sprint 1 · Windows</title>
+    <link rel="stylesheet" href="../css/estils.css">
 </head>
 
 <body>
 
-<header>
-    <h1>Sprint 1 Windows</h1>
-    <p>Instal·lació, configuració i administració de Windows</p>
+<header class="hero">
+
+    <nav class="hero-nav">
+        <a href="../index.html">Portada</a>
+        <a href="../sprints.html">Índex de sprints</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">
+            Codi a GitHub ↗
+        </a>
+    </nav>
+
+    <div class="hero-titol">
+
+        <p class="miguetes">
+            <a href="../index.html">Portada</a> /
+            <a href="../sprints.html">Índex de sprints</a> /
+            Sprint 1 Windows
+        </p>
+
+        <h1>Sprint 1 · Windows</h1>
+
+        <p class="subtitol">
+            Índex d'apartats d'aquest sprint
+        </p>
+
+    </div>
+
 </header>
 
-<main>
 
-<!-- ÍNDEX -->
+<main class="contenidor">
 
-<section id="index" class="index">
+<section class="panell">
 
-    <h2>Índex</h2>
+    <a id="index-apartats"></a>
 
-    <a href="#apartat1">1. Instal·lació i configuració de Windows</a>
-    <a class="subapartat" href="#punt1-1">1.1. Creació de la màquina virtual</a>
-    <a class="subapartat" href="#punt1-2">1.2. Memòria RAM i processador</a>
-    <a class="subapartat" href="#punt1-3">1.3. Disc dur virtual</a>
-    <a class="subapartat" href="#punt1-4">1.4. Configuració de xarxa</a>
-    <a class="subapartat" href="#punt1-5">1.5. Particions</a>
-    <a class="subapartat" href="#punt1-6">1.6. Unitat de dades</a>
+    <!-- ÍNDEX -->
 
-    <a href="#apartat2">2. Llicències de Windows</a>
-    <a class="subapartat" href="#punt2-1">2.1. Estat d'activació</a>
-    <a class="subapartat" href="#punt2-2">2.2. Comprovació amb CMD</a>
-    <a class="subapartat" href="#punt2-3">2.3. Comparació de preus</a>
-    <a class="subapartat" href="#punt2-4">2.4. Llicències CAL</a>
+    <table class="taula-apartats">
 
-    <a href="#apartat3">3. Comandes bàsiques</a>
-    <a class="subapartat" href="#punt3-1">3.1. Crear i entrar a la carpeta</a>
-    <a class="subapartat" href="#punt3-2">3.2. Crear un fitxer de text</a>
-    <a class="subapartat" href="#punt3-3">3.3. Copiar un fitxer</a>
-    <a class="subapartat" href="#punt3-4">3.4. Crear carpeta i moure fitxer</a>
-    <a class="subapartat" href="#punt3-5">3.5. Canviar noms</a>
-    <a class="subapartat" href="#punt3-6">3.6. Entrar i tornar enrere</a>
-    <a class="subapartat" href="#punt3-7">3.7. Estructura de carpetes</a>
-    <a class="subapartat" href="#punt3-8">3.8. Eliminar un fitxer</a>
-    <a class="subapartat" href="#punt3-9">3.9. Netejar el terminal</a>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Apartat</th>
+            </tr>
+        </thead>
 
-    <a href="#apartat4">4. Aplicacions i punts de restauració</a>
-    <a class="subapartat" href="#punt4-1">4.1. Creació del punt</a>
-    <a class="subapartat" href="#punt4-2">4.2. Instal·lació de Chrome</a>
-    <a class="subapartat" href="#punt4-3">4.3. Programes afectats</a>
-    <a class="subapartat" href="#punt4-4">4.4. Restauració completada</a>
+        <tbody>
 
-    <a href="#apartat5">5. Xarxa</a>
-    <a class="subapartat" href="#punt5-1">5.1. Comprovació inicial</a>
-    <a class="subapartat" href="#punt5-2">5.2. Incidència de connectivitat</a>
-    <a class="subapartat" href="#punt5-3">5.3. Canvi de xarxa</a>
-    <a class="subapartat" href="#punt5-4">5.4. Memòria cau DNS</a>
-    <a class="subapartat" href="#punt5-5">5.5. IPv4 i DNS automàtics</a>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="#apartat1">
+                        Instal·lació i configuració de Windows
+                    </a>
+                </td>
+            </tr>
 
-    <a href="#conclusio">Conclusió</a>
+            <tr>
+                <td>2</td>
+                <td>
+                    <a href="#apartat2">
+                        Llicències de Windows
+                    </a>
+                </td>
+            </tr>
 
-</section>
+            <tr>
+                <td>3</td>
+                <td>
+                    <a href="#apartat3">
+                        Comandes bàsiques
+                    </a>
+                </td>
+            </tr>
 
+            <tr>
+                <td>4</td>
+                <td>
+                    <a href="#apartat4">
+                        Aplicacions i punts de restauració
+                    </a>
+                </td>
+            </tr>
 
-<!-- APARTAT 1 -->
+            <tr>
+                <td>5</td>
+                <td>
+                    <a href="#apartat5">
+                        Xarxa
+                    </a>
+                </td>
+            </tr>
 
-<section id="apartat1">
+            <tr>
+                <td>6</td>
+                <td>
+                    <a href="#conclusio">
+                        Conclusió
+                    </a>
+                </td>
+            </tr>
 
-    <h2>1. Instal·lació i configuració de Windows</h2>
+        </tbody>
 
-    <h3 id="punt1-1">1.1. Creació de la màquina virtual</h3>
-
-    <p>
-        He creat una màquina virtual a VirtualBox amb el nom
-        windows-IvanPrats i he seleccionat la imatge ISO de
-        Windows 10 de 64 bits. He marcat l'opció de continuar
-        amb la instal·lació desatesa per fer la instal·lació
-        manualment.
-    </p>
-
-    <img src="1.png" alt="Creació de la màquina virtual">
-
-
-    <h3 id="punt1-2">1.2. Memòria RAM i processador</h3>
-
-    <p>
-        He configurat la màquina virtual amb 4096 MB de memòria
-        RAM (4 GB) i 1 CPU. A la captura també es veu que
-        l'opció EFI està desactivada.
-    </p>
-
-    <img src="2.png" alt="Configuració de RAM i processador">
-
-
-    <h3 id="punt1-3">1.3. Disc dur virtual</h3>
-
-    <p>
-        He creat un disc dur virtual nou de 50 GB en format
-        VDI (VirtualBox Disk Image), per instal·lar-hi
-        Windows i crear les particions de la pràctica.
-    </p>
-
-    <img src="3.png" alt="Creació del disc dur virtual">
-
-
-    <h3 id="punt1-4">1.4. Configuració de xarxa</h3>
-
-    <p>
-        He comprovat la configuració de xarxa de VirtualBox.
-        L'adaptador 1 està habilitat i connectat en mode NAT,
-        amb el cable virtual connectat.
-    </p>
-
-    <img src="4.png" alt="Configuració de xarxa NAT">
-
-
-    <h3 id="punt1-5">1.5. Particions</h3>
-
-    <p>
-        Durant la instal·lació he preparat una partició
-        principal de 30 GB per a Windows i he deixat 20 GB
-        sense assignar per a les dades. Windows també ha
-        creat una petita partició reservada per al sistema.
-    </p>
-
-    <img src="5.png" alt="Creació de particions">
-
-
-    <h3 id="punt1-6">1.6. Unitat de dades</h3>
-
-    <p>
-        Un cop instal·lat Windows, he creat i formatat
-        la unitat DADES (D:) amb els 20 GB restants.
-        A l'Administrador de discs es veu la unitat C:
-        i la unitat D: en format NTFS.
-    </p>
-
-    <img src="6.png" alt="Unitat de dades D">
-
-    <a class="tornar" href="#index">↑ Tornar a l'índex</a>
-
-</section>
-
-
-<!-- APARTAT 2 -->
-
-<section id="apartat2">
-
-    <h2>2. Llicències de Windows</h2>
-
-    <h3 id="punt2-1">2.1. Estat d'activació</h3>
-
-    <p>
-        He obert Configuració → Actualització i seguretat →
-        Activació per consultar l'estat de la llicència.
-        La versió instal·lada és Windows 10 Pro i no està
-        activada. El sistema mostra l'error 0xC004F213
-        perquè no ha trobat cap clau de producte al dispositiu.
-    </p>
-
-    <img src="7.png" alt="Estat d'activació de Windows">
-
-
-    <h3 id="punt2-2">2.2. Comprovació de la llicència amb CMD</h3>
-
-    <p>
-        He obert el símbol del sistema (CMD) i he executat
-        la comanda <code>slmgr /xpr</code>.
-        El resultat indica que Windows està en mode
-        de notificació.
-    </p>
-
-    <p>
-        Després he executat <code>slmgr /dli</code>,
-        que mostra l'edició Professional, el canal RETAIL
-        i l'estat de llicència de notificació.
-        Per tant, Windows no està activat.
-    </p>
-
-    <img src="8.png" alt="Comprovació de llicència amb CMD">
-    <img src="9.png" alt="Informació de llicència Windows">
-
-
-    <h3 id="punt2-3">2.3. Comparació de preus de Windows 11</h3>
-
-    <p>
-        He consultat els preus de Windows 11 Home i
-        Windows 11 Pro a la botiga oficial de Microsoft
-        i a MediaMarkt. Els preus que apareixien
-        a les captures eren els següents:
-    </p>
-
-    <table>
-        <tr>
-            <th>Botiga</th>
-            <th>Windows 11 Home</th>
-            <th>Windows 11 Pro</th>
-        </tr>
-        <tr>
-            <td>Microsoft (USB, espanyol)</td>
-            <td>145,00 €</td>
-            <td>259,00 €</td>
-        </tr>
-        <tr>
-            <td>MediaMarkt (venedor extern)</td>
-            <td>9,99 €</td>
-            <td>9,99 €</td>
-        </tr>
     </table>
 
-    <p>
-        Els preus no són directament equivalents:
-        a Microsoft he consultat versions USB,
-        mentre que a MediaMarkt les ofertes mostrades
-        són d'un venedor extern; en el cas de Pro
-        s'indica una llicència OEM de descàrrega digital.
-        Cal tenir en compte el tipus de llicència,
-        el venedor i les condicions abans de comparar-les.
-    </p>
-
-    <figure>
-        <img src="10.png" alt="Windows 11 Home Microsoft">
-        <figcaption>
-            Figura 10. Windows 11 Home a Microsoft: 145,00 €.
-        </figcaption>
-    </figure>
-
-    <figure>
-        <img src="11.png" alt="Windows 11 Pro Microsoft">
-        <figcaption>
-            Figura 11. Windows 11 Pro a Microsoft: 259,00 €.
-        </figcaption>
-    </figure>
-
-    <figure>
-        <img src="12.png" alt="Windows 11 Home MediaMarkt">
-        <figcaption>
-            Figura 12. Windows 11 Home a MediaMarkt:
-            9,99 € (venedor extern).
-        </figcaption>
-    </figure>
-
-    <figure>
-        <img src="13.png" alt="Windows 11 Pro MediaMarkt">
-        <figcaption>
-            Figura 13. Windows 11 Pro a MediaMarkt:
-            9,99 € (OEM, venedor extern).
-        </figcaption>
-    </figure>
-
-
-    <h3 id="punt2-4">2.4. Què és una llicència CAL?</h3>
-
-    <p>
-        He consultat la pàgina oficial de Microsoft
-        sobre les llicències d'accés de client (CAL).
-        Una CAL no és un programa, sinó una llicència
-        que dona dret a un usuari o dispositiu a accedir
-        legalment a determinats serveis d'un servidor.
-        Aquest tipus de llicència pot ser necessari,
-        per exemple, per utilitzar recursos compartits
-        d'una xarxa.
-    </p>
-
-    <figure>
-        <img src="14.png" alt="Llicències CAL Microsoft">
-        <figcaption>
-            Figura 14. Explicació de les llicències CAL
-            al web oficial de Microsoft.
-        </figcaption>
-    </figure>
-
-    <a class="tornar" href="#index">↑ Tornar a l'índex</a>
-
-</section>
-
 
-<!-- APARTAT 3 -->
+    <!-- ====================================== -->
+    <!-- APARTAT 1: INSTAL·LACIÓ DE WINDOWS      -->
+    <!-- ====================================== -->
 
-<section id="apartat3">
+    <article class="apartat" id="apartat1">
 
-    <h2>3. Comandes bàsiques</h2>
+        <h2>1. Instal·lació i configuració de Windows</h2>
 
-    <h3 id="punt3-1">3.1. Crear i entrar a la carpeta de pràctiques</h3>
 
-    <p>
-        Primer he utilitzat <code>cd Desktop</code>
-        per anar a l'escriptori. Després he creat
-        una carpeta anomenada «practica» amb
-        <code>mkdir practica</code> i hi he entrat
-        amb <code>cd practica</code>.
-        La captura mostra que ja estic dins de la carpeta.
-    </p>
+        <h3>1.1. Creació de la màquina virtual</h3>
 
-    <img src="15.png" alt="Crear carpeta practica">
+        <p>
+            He creat una màquina virtual a
+            <strong>VirtualBox</strong> amb el nom
+            <strong>windows-IvanPrats</strong>
+            i he seleccionat la imatge ISO de
+            <strong>Windows 10 de 64 bits</strong>.
+        </p>
 
+        <p>
+            He marcat l'opció de continuar amb la
+            instal·lació desatesa per fer la
+            instal·lació manualment.
+        </p>
 
-    <h3 id="punt3-2">3.2. Crear un fitxer de text i comprovar-lo</h3>
+        <img src="../img/1.png"
+             alt="Creació de la màquina virtual de Windows">
 
-    <p>
-        Dins de «practica», he executat
-        <code>echo hola &gt; nota.txt</code>
-        per crear el fitxer «nota.txt» amb el text «hola».
-        Amb <code>dir</code> he comprovat que
-        el fitxer apareix a la carpeta.
-    </p>
 
-    <img src="16.png" alt="Crear fitxer nota.txt">
+        <h3>1.2. Memòria RAM i processador</h3>
 
+        <p>
+            He configurat la màquina virtual amb
+            <strong>4096 MB de memòria RAM (4 GB)</strong>
+            i <strong>1 CPU</strong>.
+        </p>
 
-    <h3 id="punt3-3">3.3. Copiar un fitxer</h3>
+        <p>
+            A la captura també es veu que
+            l'opció <strong>EFI</strong>
+            està desactivada.
+        </p>
 
-    <p>
-        He fet servir <code>copy nota.txt copia.txt</code>
-        per crear una còpia del fitxer.
-        Després he executat <code>dir</code>
-        i he comprovat que hi ha els dos fitxers:
-        «nota.txt» i «copia.txt».
-    </p>
+        <img src="../img/2.png"
+             alt="Configuració de RAM i processador">
 
-    <img src="17.png" alt="Copiar fitxer amb CMD">
 
+        <h3>1.3. Disc dur virtual</h3>
 
-    <h3 id="punt3-4">3.4. Crear una carpeta i moure-hi el fitxer</h3>
+        <p>
+            He creat un disc dur virtual nou de
+            <strong>50 GB</strong> en format
+            <strong>VDI (VirtualBox Disk Image)</strong>,
+            per instal·lar-hi Windows i crear
+            les particions de la pràctica.
+        </p>
 
-    <p>
-        He creat la carpeta «arxiu» amb
-        <code>mkdir arxiu</code>.
-        A continuació, he mogut «copia.txt»
-        a aquesta carpeta amb
-        <code>move copia.txt arxiu</code>.
-        El terminal confirma que s'ha mogut un fitxer.
-    </p>
+        <img src="../img/3.png"
+             alt="Creació del disc dur virtual de 50 GB">
 
-    <img src="18.png" alt="Moure fitxer a carpeta arxiu">
 
+        <h3>1.4. Configuració de xarxa</h3>
 
-    <h3 id="punt3-5">3.5. Canviar noms de fitxers i carpetes</h3>
+        <p>
+            He comprovat la configuració de xarxa
+            de VirtualBox.
+        </p>
 
-    <p>
-        He canviat el nom de «nota.txt» a «notes.txt»
-        amb <code>ren nota.txt notes.txt</code>.
-        També he canviat el nom de la carpeta
-        «arxiu» a «backup» amb
-        <code>ren arxiu backup</code>.
-        Amb <code>dir</code> he comprovat
-        els nous noms.
-    </p>
+        <p>
+            L'adaptador 1 està habilitat i
+            connectat en mode <strong>NAT</strong>,
+            amb el cable virtual connectat.
+        </p>
 
-    <img src="19.png" alt="Canviar noms amb ren">
+        <img src="../img/4.png"
+             alt="Configuració de xarxa NAT a VirtualBox">
 
 
-    <h3 id="punt3-6">3.6. Entrar en una carpeta i tornar enrere</h3>
+        <h3>1.5. Particions</h3>
 
-    <p>
-        He entrat a «backup» amb <code>cd backup</code>
-        i he utilitzat <code>dir</code> per comprovar
-        que conté «copia.txt».
-        Després he escrit <code>cd ..</code>
-        per tornar a la carpeta «practica».
-    </p>
+        <p>
+            Durant la instal·lació he preparat
+            una partició principal de
+            <strong>30 GB</strong> per a Windows
+            i he deixat <strong>20 GB</strong>
+            sense assignar per a les dades.
+        </p>
 
-    <img src="20.png" alt="Entrar i sortir de carpetes">
+        <p>
+            Windows també ha creat una petita
+            partició reservada per al sistema.
+        </p>
 
+        <img src="../img/5.png"
+             alt="Creació de les particions de Windows">
 
-    <h3 id="punt3-7">3.7. Mostrar l'estructura de carpetes i fitxers</h3>
 
-    <p>
-        He executat <code>tree /f</code>
-        dins de «practica» per veure l'estructura completa.
-        El resultat mostra «notes.txt» i la carpeta
-        «backup», que conté «copia.txt».
-    </p>
+        <h3>1.6. Unitat de dades</h3>
 
-    <img src="21.png" alt="Estructura de carpetes tree">
+        <p>
+            Un cop instal·lat Windows, he creat
+            i formatat la unitat
+            <strong>DADES (D:)</strong>
+            amb els 20 GB restants.
+        </p>
 
+        <p>
+            A l'Administrador de discs es veu
+            la unitat <strong>C:</strong>
+            i la unitat <strong>D:</strong>
+            en format <strong>NTFS</strong>.
+        </p>
 
-    <h3 id="punt3-8">3.8. Eliminar un fitxer i verificar el resultat</h3>
+        <img src="../img/6.png"
+             alt="Unitat de dades D en format NTFS">
 
-    <p>
-        He executat <code>del notes.txt</code>
-        per eliminar el fitxer «notes.txt».
-        Després he utilitzat <code>dir</code>
-        per comprovar que ja no apareix a «practica»
-        i que la carpeta «backup» continua existint.
-    </p>
 
-    <img src="22.png" alt="Eliminar fitxer amb del">
+        <p class="tornar-index">
+            <a href="#index-apartats">
+                ↑ Tornar a l'índex
+            </a>
+        </p>
 
+    </article>
 
-    <h3 id="punt3-9">3.9. Netejar la pantalla del terminal</h3>
 
-    <p>
-        Finalment, he utilitzat l'ordre
-        <code>cls</code> per netejar la finestra
-        del símbol del sistema.
-        La captura mostra el terminal buit,
-        preparat per continuar treballant.
-    </p>
 
-    <!-- Aquest apartat no té una captura pròpia al PDF -->
+    <!-- ====================================== -->
+    <!-- APARTAT 2: LLICÈNCIES DE WINDOWS        -->
+    <!-- ====================================== -->
 
-    <a class="tornar" href="#index">↑ Tornar a l'índex</a>
+    <article class="apartat" id="apartat2">
 
-</section>
+        <h2>2. Llicències de Windows</h2>
 
 
-<!-- APARTAT 4 -->
+        <h3>2.1. Estat d'activació</h3>
 
-<section id="apartat4">
+        <p>
+            He obert
+            <strong>
+                Configuració → Actualització i seguretat
+                → Activació
+            </strong>
+            per consultar l'estat de la llicència.
+        </p>
 
-    <h2>4. Aplicacions i punts de restauració</h2>
+        <p>
+            La versió instal·lada és
+            <strong>Windows 10 Pro</strong>
+            i no està activada.
+        </p>
 
-    <h3 id="punt4-1">4.1. Creació del punt de restauració</h3>
+        <p>
+            El sistema mostra l'error
+            <strong>0xC004F213</strong>
+            perquè no ha trobat cap clau
+            de producte al dispositiu.
+        </p>
 
-    <p>
-        A Propietats del sistema &gt; Protecció del sistema,
-        es confirma que el punt de restauració s'ha creat
-        correctament. La protecció està activada
-        per a la unitat C:.
-    </p>
+        <img src="../img/7.png"
+             alt="Estat d'activació de Windows 10 Pro">
 
-    <img src="23.png" alt="Creació del punt de restauració">
 
+        <h3>2.2. Comprovació de la llicència amb CMD</h3>
 
-    <h3 id="punt4-2">4.2. Instal·lació i comprovació de Google Chrome</h3>
+        <p>
+            He obert el símbol del sistema
+            (<strong>CMD</strong>)
+            i he executat la següent comanda:
+        </p>
 
-    <p>
-        S'obre Google Chrome després de crear
-        el punt de restauració, per disposar d'un
-        canvi al sistema que es pugui comprovar
-        durant la restauració.
-    </p>
+        <pre><code>slmgr /xpr</code></pre>
 
-    <img src="24.png" alt="Instal·lació de Google Chrome">
+        <p>
+            El resultat indica que Windows
+            està en <strong>mode de notificació</strong>.
+        </p>
 
+        <img src="../img/8.png"
+             alt="Comprovació de la llicència amb slmgr xpr">
 
-    <h3 id="punt4-3">4.3. Comprovació dels programes afectats</h3>
+        <p>
+            Després he executat:
+        </p>
 
-    <p>
-        Abans de restaurar, es consulta la llista
-        de programes afectats pel punt «abans de Chrome».
-        Windows indica que Google Chrome 155.0.8059.85
-        s'eliminarà en tornar a aquest estat.
-    </p>
+        <pre><code>slmgr /dli</code></pre>
 
-    <img src="25.png" alt="Programes afectats per restauració">
+        <p>
+            Aquesta comanda mostra l'edició
+            <strong>Professional</strong>,
+            el canal <strong>RETAIL</strong>
+            i l'estat de llicència de notificació.
+        </p>
 
+        <p>
+            Per tant, Windows no està activat.
+        </p>
 
-    <h3 id="punt4-4">4.4. Restauració completada</h3>
+        <img src="../img/9.png"
+             alt="Informació de la llicència amb slmgr dli">
 
-    <p>
-        Windows confirma que la restauració del sistema
-        s'ha completat correctament i que els documents
-        no han resultat afectats.
-    </p>
 
-    <img src="26.png" alt="Restauració completada">
+        <h3>2.3. Comparació de preus de Windows 11</h3>
 
-    <a class="tornar" href="#index">↑ Tornar a l'índex</a>
+        <p>
+            He consultat els preus de
+            <strong>Windows 11 Home</strong>
+            i <strong>Windows 11 Pro</strong>
+            a la botiga oficial de Microsoft
+            i a MediaMarkt.
+        </p>
 
-</section>
+        <p>
+            Els preus que apareixien a les
+            captures eren els següents:
+        </p>
 
+        <table>
 
-<!-- APARTAT 5 -->
+            <thead>
+                <tr>
+                    <th>Botiga</th>
+                    <th>Windows 11 Home</th>
+                    <th>Windows 11 Pro</th>
+                </tr>
+            </thead>
 
-<section id="apartat5">
+            <tbody>
 
-    <h2>5. Xarxa</h2>
+                <tr>
+                    <td>Microsoft (USB, espanyol)</td>
+                    <td>145,00 €</td>
+                    <td>259,00 €</td>
+                </tr>
 
-    <h3 id="punt5-1">5.1. Comprovació inicial de xarxa</h3>
+                <tr>
+                    <td>MediaMarkt (venedor extern)</td>
+                    <td>9,99 €</td>
+                    <td>9,99 €</td>
+                </tr>
 
-    <p>
-        Amb la configuració de xarxa inicial,
-        la màquina presenta la IP 10.0.2.15.
-        Les ordres <code>ping google.com</code>
-        i <code>ping 8.8.8.8</code> reben
-        quatre respostes cadascuna,
-        sense pèrdua de paquets.
-    </p>
+            </tbody>
 
-    <img src="27.png" alt="Comprovació inicial de xarxa">
+        </table>
 
+        <p>
+            Els preus no són directament equivalents:
+            a Microsoft he consultat versions USB,
+            mentre que a MediaMarkt les ofertes
+            mostrades són d'un venedor extern.
+        </p>
 
-    <h3 id="punt5-2">5.2. Simulació d'una incidència de connectivitat</h3>
+        <p>
+            En el cas de Windows 11 Pro de MediaMarkt,
+            s'indica una llicència
+            <strong>OEM de descàrrega digital</strong>.
+        </p>
 
-    <p>
-        Es comprova una situació de fallada:
-        google.com no es pot resoldre i les proves
-        cap a 8.8.8.8 mostren
-        «Host de destino inaccesible».
-        Això evidencia un problema de xarxa
-        en aquell moment.
-    </p>
+        <p>
+            Cal tenir en compte el tipus de llicència,
+            el venedor i les condicions abans
+            de comparar-les.
+        </p>
 
-    <img src="28.png" alt="Incidència de connectivitat">
 
+        <h4>Windows 11 Home a Microsoft</h4>
 
-    <h3 id="punt5-3">5.3. Comprovació després del canvi de xarxa</h3>
+        <p>
+            A la botiga oficial de Microsoft,
+            Windows 11 Home en format USB
+            tenia un preu de <strong>145,00 €</strong>.
+        </p>
 
-    <p>
-        Després del canvi de configuració,
-        la màquina mostra la IP 192.168.1.133
-        i la passarel·la 192.168.1.1.
-        Tant google.com com 8.8.8.8 responen
-        correctament, sense pèrdues.
-    </p>
+        <img src="../img/10.png"
+             alt="Preu de Windows 11 Home a Microsoft">
 
-    <img src="29.png" alt="Comprovació després del canvi de xarxa">
 
+        <h4>Windows 11 Pro a Microsoft</h4>
 
-    <h3 id="punt5-4">5.4. Neteja de la memòria cau DNS</h3>
+        <p>
+            A la botiga oficial de Microsoft,
+            Windows 11 Pro en format USB
+            tenia un preu de <strong>259,00 €</strong>.
+        </p>
 
-    <p>
-        S'executa <code>ipconfig /flushdns</code>
-        i Windows confirma que la memòria cau
-        de resolució DNS s'ha buidat.
-        Les noves proves de ping a google.com
-        i 8.8.8.8 tornen a funcionar.
-    </p>
+        <img src="../img/11.png"
+             alt="Preu de Windows 11 Pro a Microsoft">
 
-    <img src="30.png" alt="Neteja de memòria cau DNS">
 
+        <h4>Windows 11 Home a MediaMarkt</h4>
 
-    <h3 id="punt5-5">5.5. Configuració automàtica d'IPv4 i DNS</h3>
+        <p>
+            A MediaMarkt, un venedor extern
+            oferia Windows 11 Home per
+            <strong>9,99 €</strong>.
+        </p>
 
-    <p>
-        A les propietats d'IPv4 de l'adaptador Ethernet
-        es verifica que tant l'adreça IP com els
-        servidors DNS s'obtenen automàticament.
-    </p>
+        <img src="../img/12.png"
+             alt="Preu de Windows 11 Home a MediaMarkt">
 
-    <img src="31.png" alt="Configuració automàtica IPv4 i DNS">
 
-    <a class="tornar" href="#index">↑ Tornar a l'índex</a>
+        <h4>Windows 11 Pro a MediaMarkt</h4>
 
-</section>
+        <p>
+            A MediaMarkt, un venedor extern
+            oferia Windows 11 Pro per
+            <strong>9,99 €</strong>,
+            en format de llicència OEM digital.
+        </p>
 
+        <img src="../img/13.png"
+             alt="Preu de Windows 11 Pro a MediaMarkt">
 
-<!-- CONCLUSIÓ -->
 
-<section id="conclusio">
+        <h3>2.4. Què és una llicència CAL?</h3>
 
-    <h2>Conclusió</h2>
+        <p>
+            He consultat la pàgina oficial
+            de Microsoft sobre les
+            <strong>
+                llicències d'accés de client (CAL)
+            </strong>.
+        </p>
 
-    <p>
-        S'ha verificat la creació i l'ús d'un punt
-        de restauració, així com les proves de
-        connectivitat, la resolució d'una incidència
-        de xarxa i la configuració automàtica
-        d'IP i DNS.
-    </p>
+        <p>
+            Una CAL no és un programa,
+            sinó una llicència que dona dret
+            a un usuari o dispositiu a accedir
+            legalment a determinats serveis
+            d'un servidor.
+        </p>
 
-    <a class="tornar" href="#index">↑ Tornar a l'índex</a>
+        <p>
+            Aquest tipus de llicència pot ser
+            necessari, per exemple, per utilitzar
+            recursos compartits d'una xarxa.
+        </p>
+
+        <img src="../img/14.png"
+             alt="Informació sobre les llicències CAL de Microsoft">
+
+
+        <p class="tornar-index">
+            <a href="#index-apartats">
+                ↑ Tornar a l'índex
+            </a>
+        </p>
+
+    </article>
+
+
+
+    <!-- ====================================== -->
+    <!-- APARTAT 3: COMANDES BÀSIQUES            -->
+    <!-- ====================================== -->
+
+    <article class="apartat" id="apartat3">
+
+        <h2>3. Comandes bàsiques</h2>
+
+
+        <h3>3.1. Crear i entrar a la carpeta de pràctiques</h3>
+
+        <p>
+            Primer he utilitzat
+            <code>cd Desktop</code>
+            per anar a l'escriptori.
+        </p>
+
+        <p>
+            Després he creat una carpeta
+            anomenada <strong>practica</strong>
+            amb <code>mkdir practica</code>
+            i hi he entrat amb
+            <code>cd practica</code>.
+        </p>
+
+        <pre><code>cd Desktop
+mkdir practica
+cd practica</code></pre>
+
+        <p>
+            La captura mostra que ja estic
+            dins de la carpeta.
+        </p>
+
+        <img src="../img/15.png"
+             alt="Creació de la carpeta practica amb CMD">
+
+
+        <h3>3.2. Crear un fitxer de text i comprovar-lo</h3>
+
+        <p>
+            Dins de la carpeta
+            <strong>practica</strong>,
+            he executat la comanda següent
+            per crear el fitxer
+            <strong>nota.txt</strong>
+            amb el text «hola»:
+        </p>
+
+        <pre><code>echo hola &gt; nota.txt</code></pre>
+
+        <p>
+            Després he utilitzat
+            <code>dir</code>
+            per comprovar que el fitxer
+            apareix a la carpeta.
+        </p>
+
+        <pre><code>dir</code></pre>
+
+        <img src="../img/16.png"
+             alt="Creació del fitxer nota.txt">
+
+
+        <h3>3.3. Copiar un fitxer</h3>
+
+        <p>
+            He fet servir la comanda
+            <code>copy</code>
+            per crear una còpia del fitxer.
+        </p>
+
+        <pre><code>copy nota.txt copia.txt
+dir</code></pre>
+
+        <p>
+            Després he comprovat que
+            hi ha els dos fitxers:
+            <strong>nota.txt</strong>
+            i <strong>copia.txt</strong>.
+        </p>
+
+        <img src="../img/17.png"
+             alt="Còpia de fitxers amb CMD">
+
+
+        <h3>3.4. Crear una carpeta i moure-hi el fitxer</h3>
+
+        <p>
+            He creat la carpeta
+            <strong>arxiu</strong>
+            amb <code>mkdir arxiu</code>.
+        </p>
+
+        <p>
+            A continuació, he mogut
+            <strong>copia.txt</strong>
+            a aquesta carpeta amb
+            la comanda <code>move</code>.
+        </p>
+
+        <pre><code>mkdir arxiu
+move copia.txt arxiu</code></pre>
+
+        <p>
+            El terminal confirma que
+            s'ha mogut un fitxer.
+        </p>
+
+        <img src="../img/18.png"
+             alt="Creació de carpeta i moviment del fitxer">
+
+
+        <h3>3.5. Canviar noms de fitxers i carpetes</h3>
+
+        <p>
+            He canviat el nom de
+            <strong>nota.txt</strong>
+            a <strong>notes.txt</strong>
+            amb la comanda <code>ren</code>.
+        </p>
+
+        <p>
+            També he canviat el nom
+            de la carpeta <strong>arxiu</strong>
+            a <strong>backup</strong>.
+        </p>
+
+        <pre><code>ren nota.txt notes.txt
+ren arxiu backup
+dir</code></pre>
+
+        <p>
+            Amb <code>dir</code>
+            he comprovat els nous noms.
+        </p>
+
+        <img src="../img/19.png"
+             alt="Canvi de noms de fitxers i carpetes">
+
+
+        <h3>3.6. Entrar en una carpeta i tornar enrere</h3>
+
+        <p>
+            He entrat a la carpeta
+            <strong>backup</strong>
+            amb <code>cd backup</code>
+            i he utilitzat <code>dir</code>
+            per comprovar que conté
+            <strong>copia.txt</strong>.
+        </p>
+
+        <p>
+            Després he escrit
+            <code>cd ..</code>
+            per tornar a la carpeta
+            <strong>practica</strong>.
+        </p>
+
+        <pre><code>cd backup
+dir
+cd ..</code></pre>
+
+        <img src="../img/20.png"
+             alt="Navegació entre carpetes amb CMD">
+
+
+        <h3>3.7. Mostrar l'estructura de carpetes i fitxers</h3>
+
+        <p>
+            He executat la comanda
+            <code>tree /f</code>
+            dins de la carpeta
+            <strong>practica</strong>
+            per veure l'estructura completa.
+        </p>
+
+        <pre><code>tree /f</code></pre>
+
+        <p>
+            El resultat mostra
+            <strong>notes.txt</strong>
+            i la carpeta <strong>backup</strong>,
+            que conté <strong>copia.txt</strong>.
+        </p>
+
+        <img src="../img/21.png"
+             alt="Estructura de carpetes i fitxers amb tree">
+
+
+        <h3>3.8. Eliminar un fitxer i verificar el resultat</h3>
+
+        <p>
+            He executat
+            <code>del notes.txt</code>
+            per eliminar el fitxer
+            <strong>notes.txt</strong>.
+        </p>
+
+        <p>
+            Després he utilitzat
+            <code>dir</code>
+            per comprovar que ja no
+            apareix a la carpeta
+            <strong>practica</strong>
+            i que la carpeta
+            <strong>backup</strong>
+            continua existint.
+        </p>
+
+        <pre><code>del notes.txt
+dir</code></pre>
+
+        <img src="../img/22.png"
+             alt="Eliminació del fitxer notes.txt">
+
+
+        <h3>3.9. Netejar la pantalla del terminal</h3>
+
+        <p>
+            Finalment, he utilitzat
+            l'ordre <code>cls</code>
+            per netejar la finestra
+            del símbol del sistema.
+        </p>
+
+        <pre><code>cls</code></pre>
+
+        <p>
+            Aquesta comanda deixa
+            el terminal buit i preparat
+            per continuar treballant.
+        </p>
+
+        <img src="../img/23.png"
+             alt="Neteja de la pantalla del terminal amb cls">
+
+
+        <p class="tornar-index">
+            <a href="#index-apartats">
+                ↑ Tornar a l'índex
+            </a>
+        </p>
+
+    </article>
+
+
+
+    <!-- ====================================== -->
+    <!-- APARTAT 4: PUNTS DE RESTAURACIÓ         -->
+    <!-- ====================================== -->
+
+    <article class="apartat" id="apartat4">
+
+        <h2>4. Aplicacions i punts de restauració</h2>
+
+
+        <h3>4.1. Creació del punt de restauració</h3>
+
+        <p>
+            He accedit a
+            <strong>
+                Propietats del sistema →
+                Protecció del sistema
+            </strong>
+            per crear un punt de restauració.
+        </p>
+
+        <p>
+            El sistema confirma que
+            el punt de restauració
+            s'ha creat correctament.
+        </p>
+
+        <p>
+            La protecció està activada
+            per a la unitat <strong>C:</strong>.
+        </p>
+
+        <img src="../img/24.png"
+             alt="Creació del punt de restauració de Windows">
+
+
+        <h3>4.2. Instal·lació i comprovació de Google Chrome</h3>
+
+        <p>
+            Després de crear el punt
+            de restauració, he instal·lat
+            i obert <strong>Google Chrome</strong>.
+        </p>
+
+        <p>
+            Això permet disposar d'un canvi
+            al sistema que es pugui comprovar
+            durant la restauració.
+        </p>
+
+        <img src="../img/25.png"
+             alt="Instal·lació i execució de Google Chrome">
+
+
+        <h3>4.3. Comprovació dels programes afectats</h3>
+
+        <p>
+            Abans de restaurar el sistema,
+            he consultat la llista de
+            programes afectats pel punt
+            de restauració
+            <strong>«abans de Chrome»</strong>.
+        </p>
+
+        <p>
+            Windows indica que
+            <strong>Google Chrome 155.0.8059.85</strong>
+            s'eliminarà en tornar
+            a aquest estat.
+        </p>
+
+        <img src="../img/26.png"
+             alt="Comprovació dels programes afectats">
+
+
+        <h3>4.4. Restauració completada</h3>
+
+        <p>
+            Windows confirma que
+            la restauració del sistema
+            s'ha completat correctament.
+        </p>
+
+        <p>
+            El sistema també indica
+            que els documents
+            no han resultat afectats.
+        </p>
+
+        <img src="../img/27.png"
+             alt="Restauració del sistema completada">
+
+
+        <p class="tornar-index">
+            <a href="#index-apartats">
+                ↑ Tornar a l'índex
+            </a>
+        </p>
+
+    </article>
+
+
+
+    <!-- ====================================== -->
+    <!-- APARTAT 5: XARXA                       -->
+    <!-- ====================================== -->
+
+    <article class="apartat" id="apartat5">
+
+        <h2>5. Xarxa</h2>
+
+
+        <h3>5.1. Comprovació inicial de xarxa</h3>
+
+        <p>
+            Amb la configuració de xarxa inicial,
+            la màquina virtual presenta
+            l'adreça IP
+            <strong>10.0.2.15</strong>.
+        </p>
+
+        <p>
+            He comprovat la connexió
+            executant les següents comandes:
+        </p>
+
+        <pre><code>ping google.com
+ping 8.8.8.8</code></pre>
+
+        <p>
+            Les dues ordres reben
+            quatre respostes cadascuna,
+            sense pèrdua de paquets.
+        </p>
+
+        <img src="../img/28.png"
+             alt="Comprovació inicial de la connexió de xarxa">
+
+
+        <h3>5.2. Simulació d'una incidència de connectivitat</h3>
+
+        <p>
+            He comprovat una situació
+            de fallada de xarxa.
+        </p>
+
+        <p>
+            El domini <code>google.com</code>
+            no es pot resoldre.
+        </p>
+
+        <p>
+            Les proves de connexió
+            cap a <code>8.8.8.8</code>
+            mostren el missatge:
+            <strong>«Host de destino inaccesible»</strong>.
+        </p>
+
+        <p>
+            Això evidencia un problema
+            de connectivitat de xarxa
+            en aquell moment.
+        </p>
+
+        <img src="../img/29.png"
+             alt="Simulació d'una incidència de xarxa">
+
+
+        <h3>5.3. Comprovació després del canvi de xarxa</h3>
+
+        <p>
+            Després del canvi de configuració,
+            la màquina mostra l'adreça IP
+            <strong>192.168.1.133</strong>
+            i la passarel·la
+            <strong>192.168.1.1</strong>.
+        </p>
+
+        <p>
+            He tornat a executar
+            les proves de connectivitat:
+        </p>
+
+        <pre><code>ping google.com
+ping 8.8.8.8</code></pre>
+
+        <p>
+            Tant google.com com 8.8.8.8
+            responen correctament,
+            sense pèrdua de paquets.
+        </p>
+
+        <img src="../img/30.png"
+             alt="Comprovació després del canvi de xarxa">
+
+
+        <h3>5.4. Neteja de la memòria cau DNS</h3>
+
+        <p>
+            He executat la comanda:
+        </p>
+
+        <pre><code>ipconfig /flushdns</code></pre>
+
+        <p>
+            Windows confirma que
+            la memòria cau de resolució DNS
+            s'ha buidat correctament.
+        </p>
+
+        <p>
+            Després he tornat a comprovar
+            la connexió amb:
+        </p>
+
+        <pre><code>ping google.com
+ping 8.8.8.8</code></pre>
+
+        <p>
+            Les dues proves tornen
+            a funcionar correctament.
+        </p>
+
+        <img src="../img/31.png"
+             alt="Neteja de la memòria cau DNS">
+
+
+        <h3>5.5. Configuració automàtica d'IPv4 i DNS</h3>
+
+        <p>
+            He accedit a les propietats
+            del protocol
+            <strong>IPv4</strong>
+            de l'adaptador Ethernet.
+        </p>
+
+        <p>
+            He comprovat que
+            tant l'adreça IP com
+            els servidors DNS
+            s'obtenen
+            <strong>automàticament</strong>.
+        </p>
+
+        <img src="../img/32.png"
+             alt="Configuració automàtica de la IP i els DNS">
+
+
+        <p class="tornar-index">
+            <a href="#index-apartats">
+                ↑ Tornar a l'índex
+            </a>
+        </p>
+
+    </article>
+
+
+
+    <!-- ====================================== -->
+    <!-- CONCLUSIÓ                              -->
+    <!-- ====================================== -->
+
+    <article class="apartat" id="conclusio">
+
+        <h2>Conclusió</h2>
+
+        <p>
+            S'ha verificat la creació
+            i l'ús d'un punt de restauració,
+            així com les proves de connectivitat,
+            la resolució d'una incidència
+            de xarxa i la configuració
+            automàtica d'IP i DNS.
+        </p>
+
+        <p class="tornar-index">
+            <a href="#index-apartats">
+                ↑ Tornar a l'índex
+            </a>
+        </p>
+
+    </article>
 
 </section>
 
 </main>
+
+
+
+<!-- ====================================== -->
+<!-- PEU DE PÀGINA                          -->
+<!-- ====================================== -->
+
+<footer class="peu">
+
+    <p class="peu-llicencia">
+
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca"
+           target="_blank"
+           rel="license noopener">
+
+            <img
+                src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"
+                alt="Llicència Creative Commons CC BY-NC-ND 4.0"
+                width="88"
+                height="31">
+
+        </a>
+
+        <span>
+            Contingut sota llicència
+
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca"
+               target="_blank"
+               rel="license noopener">
+                CC BY-NC-ND 4.0
+            </a>
+        </span>
+
+    </p>
+
+</footer>
 
 </body>
 </html>
