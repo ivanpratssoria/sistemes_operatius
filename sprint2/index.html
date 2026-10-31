@@ -1,74 +1,388 @@
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprint 2 · Gestió de programari i usuaris</title>
-<link rel="stylesheet" href="../css/estils.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint 2 · Gestió de processos</title>
+  <link rel="stylesheet" href="../css/estils.css">
 </head>
+
 <body>
 
 <header class="hero">
   <nav class="hero-nav">
     <a href="../index.html">Portada</a>
     <a href="../sprints.html">Índex de sprints</a>
-    <a href="https://github.com/" target="_blank" rel="noopener">Codi a GitHub ↗</a>
+    <a href="https://github.com/ivanpratssoria/sistemes_operatius"
+       target="_blank" rel="noopener">Codi a GitHub ↗</a>
   </nav>
+
   <div class="hero-titol">
-    <p class="miguetes"><a href="../index.html">Portada</a> / <a href="../sprints.html">Índex de sprints</a> / Sprint 2</p>
+    <p class="miguetes">
+      <a href="../index.html">Portada</a> /
+      <a href="../sprints.html">Índex de sprints</a> /
+      Sprint 2
+    </p>
+
     <h1>Sprint 2 · Gestió de programari i usuaris</h1>
-    <p class="subtitol">Índex d'apartats d'aquest sprint</p>
+    <p class="subtitol">Pràctiques i activitats del Sprint 2</p>
   </div>
 </header>
 
 <main class="contenidor">
   <section class="panell">
+
     <a id="index-apartats"></a>
+
+    <!-- ÍNDEX -->
     <table class="taula-apartats">
       <thead>
-        <tr><th>#</th><th>Apartat</th></tr>
+        <tr>
+          <th>#</th>
+          <th>Apartat</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><a href="#apartat1">Gestors de paquets</a></td></tr>
-        <tr><td>2</td><td><a href="#apartat2">Permisos i propietaris d'arxius</a></td></tr>
+        <tr>
+          <td>1</td>
+          <td><a href="#apartat1">Gestió de processos</a></td>
+        </tr>
       </tbody>
     </table>
 
+    <!-- APARTAT 1 -->
     <article class="apartat" id="apartat1">
-      <h2>1. Gestors de paquets</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-         tempor incididunt ut labore et dolore magna aliqua. El gestor de
-         paquets permet <strong>instal·lar, actualitzar i eliminar</strong>
-         programari de manera controlada.</p>
-      <ul>
-        <li>Actualitzar la llista de paquets disponibles.</li>
-        <li>Instal·lar un paquet nou.</li>
-        <li>Eliminar un paquet que ja no es fa servir.</li>
-      </ul>
-      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+
+      <h2>1. Gestió de processos</h2>
+
+      <p>
+        En aquesta pràctica he treballat la gestió de processos
+        en un sistema operatiu Ubuntu. L'objectiu era investigar
+        per què un servidor funcionava lentament, identificar
+        processos sospitosos i aprendre a controlar-los.
+      </p>
+
+      <p>
+        He utilitzat comandes com <strong>ps, top, pgrep,
+        pstree, jobs, bg, fg, renice, kill i nohup</strong>.
+      </p>
+
+      <!-- 1.1 -->
+      <h3>1.1. Preparació de l'entorn</h3>
+
+      <p>
+        Primer he creat una carpeta anomenada
+        <code>missio</code>, on he guardat els scripts
+        necessaris per simular el problema del servidor.
+      </p>
+
+      <pre><code>mkdir ~/missio
+cd ~/missio</code></pre>
+
+      <p>
+        He creat els scripts
+        <code>minador</code>,
+        <code>espia</code>,
+        <code>backup_nocturn</code>,
+        <code>descarrega.sh</code> i
+        <code>sospitosos.sh</code>.
+      </p>
+
+      <p>
+        El minador consumeix CPU, l'espia ignora el senyal
+        SIGTERM, el backup simula una còpia de seguretat
+        i la descàrrega simula una tasca important.
+      </p>
+
+      <p>
+        Després he donat permisos d'execució als scripts
+        i he executat el fitxer que inicia els processos.
+      </p>
+
+      <pre><code>chmod +x minador espia backup_nocturn descarrega.sh sospitosos.sh
+./sospitosos.sh
+ls -l</code></pre>
+
+      <img src="imatges/captura1.png"
+           alt="Creació dels scripts i preparació de la missió">
+
+      <!-- 1.2 -->
+      <h3>1.2. Reconeixement dels processos</h3>
+
+      <p>
+        He utilitzat <code>pstree</code> per veure els
+        processos en forma d'arbre i comprovar quins
+        processos depenien d'altres.
+      </p>
+
+      <pre><code>pstree -p $USER</code></pre>
+
+      <p>
+        En aquestes captures es poden veure els processos
+        de la missió, com els dos minadors, l'espia i
+        el backup, juntament amb els seus identificadors PID.
+      </p>
+
+      <img src="imatges/captura2_1.png"
+           alt="Primera part de l'arbre de processos">
+
+      <img src="imatges/captura2_2.png"
+           alt="Segona part de l'arbre de processos">
+
+      <!-- 1.3 -->
+      <h3>1.3. Anàlisi del consum de recursos</h3>
+
+      <p>
+        He executat <code>top</code> per observar
+        el consum de CPU i memòria en temps real.
+      </p>
+
+      <pre><code>top</code></pre>
+
+      <p>
+        He comprovat que els dos processos
+        <code>minador</code> consumien aproximadament
+        un 50 % de CPU cadascun. Això explicava
+        per què el servidor anava lent.
+      </p>
+
+      <img src="imatges/captura3.png"
+           alt="Consum de CPU dels dos processos minador">
+
+      <!-- 1.4 -->
+      <h3>1.4. Investigació amb PS i PGREP</h3>
+
+      <p>
+        He utilitzat les comandes <code>ps</code> i
+        <code>pgrep</code> per identificar els processos
+        sospitosos i consultar les seves dades.
+      </p>
+
+      <pre><code>ps aux --sort=-%cpu | head -6
+pgrep minador
+pgrep -l 'minador|espia|backup'
+ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code></pre>
+
+      <p>
+        He pogut identificar el PID, el PPID, l'usuari,
+        l'estat, el temps d'execució i el percentatge
+        de CPU de cada procés.
+      </p>
+
+      <p>
+        També he comprovat que els processos de la missió
+        tenien com a procés pare el <code>systemd</code>
+        de l'usuari.
+      </p>
+
+      <img src="imatges/captura4.png"
+           alt="Identificació dels processos amb ps i pgrep">
+
+      <!-- 1.5 -->
+      <h3>1.5. Control de processos en segon pla</h3>
+
+      <p>
+        He executat l'script <code>descarrega.sh</code>,
+        que simula la descàrrega d'un fitxer ISO d'Ubuntu.
+      </p>
+
+      <p>
+        En un altre terminal he utilitzat
+        <code>watch</code> per observar el progrés
+        de la descàrrega.
+      </p>
+
+      <pre><code>./descarrega.sh
+watch -n 1 cat progres.txt</code></pre>
+
+      <p>
+        He aturat la descàrrega amb
+        <strong>Ctrl+Z</strong>, he consultat
+        el treball amb <code>jobs -l</code>
+        i l'he reprès en segon pla amb
+        <code>bg %1</code>.
+      </p>
+
+      <pre><code>jobs -l
+bg %1
+fg %1</code></pre>
+
+      <p>
+        Finalment, he tornat a deixar el procés
+        en segon pla i he comprovat que continuava
+        funcionant mentre el terminal estava lliure.
+      </p>
+
+      <img src="imatges/captura5.png"
+           alt="Control de la descàrrega amb jobs, bg i fg">
+
+      <!-- 1.6 -->
+      <h3>1.6. Modificació de prioritats amb RENICE</h3>
+
+      <p>
+        He utilitzat <code>renice</code> per donar
+        més prioritat a la descàrrega i reduir
+        la competència pels recursos de CPU.
+      </p>
+
+      <pre><code>sudo renice -n -10 -p PID_DESCARREGA</code></pre>
+
+      <p>
+        Després he observat els processos amb
+        <code>top</code> i he comprovat que
+        la descàrrega tenia un valor NI de
+        <strong>-10</strong> i consumia
+        aproximadament un <strong>81 % de CPU</strong>,
+        mentre que els minadors consumien
+        al voltant d'un 8 % cadascun.
+      </p>
+
+      <p>
+        Això demostra com la prioritat pot
+        influir en el repartiment dels recursos.
+      </p>
+
+      <img src="imatges/captura6.png"
+           alt="Descàrrega amb prioritat -10 i consum de CPU superior">
+
+      <!-- 1.7 -->
+      <h3>1.7. Control de processos amb senyals</h3>
+
+      <p>
+        He eliminat els dos minadors amb
+        <strong>SIGTERM</strong> i he comprovat
+        que deixaven d'executar-se.
+      </p>
+
+      <pre><code>pgrep -l minador
+pkill -TERM -x minador</code></pre>
+
+      <p>
+        Després he enviat SIGTERM a l'espia,
+        però ha continuat funcionant perquè
+        estava programat per ignorar aquest senyal.
+      </p>
+
+      <pre><code>pkill -TERM -x espia
+pgrep -l espia</code></pre>
+
+      <p>
+        Per finalitzar-lo definitivament he
+        utilitzat <strong>SIGKILL</strong>.
+      </p>
+
+      <pre><code>pkill -KILL -x espia</code></pre>
+
+      <p>
+        Finalment, he aturat temporalment
+        el procés <code>backup_nocturn</code>
+        amb SIGSTOP i l'he reprès amb SIGCONT.
+      </p>
+
+      <pre><code>kill -STOP PID_BACKUP
+ps -o pid,stat,comm -p PID_BACKUP
+
+kill -CONT PID_BACKUP
+ps -o pid,stat,comm -p PID_BACKUP</code></pre>
+
+      <p>
+        He comprovat que el procés passava
+        de l'estat <strong>T</strong> (aturat)
+        a l'estat <strong>S</strong> (dormint).
+      </p>
+
+      <img src="imatges/captura7.png"
+           alt="Finalització dels minadors i l'espia i control del backup">
+
+      <!-- 1.8 -->
+      <h3>1.8. Execució persistent amb NOHUP</h3>
+
+      <p>
+        En l'última part he iniciat una descàrrega
+        amb <code>nohup</code> perquè el procés
+        pogués continuar funcionant sense dependre
+        del terminal.
+      </p>
+
+      <pre><code>nohup ./descarrega.sh > nohup.out 2>&amp;1 &amp;</code></pre>
+
+      <p>
+        He comprovat que la descàrrega estava
+        funcionant en segon pla amb
+        <code>jobs -l</code> i he consultat
+        el fitxer de sortida i el progrés.
+      </p>
+
+      <pre><code>jobs -l
+cat nohup.out
+cat progres.txt</code></pre>
+
+      <p>
+        A la captura es veu que el procés s'ha
+        iniciat correctament amb
+        <code>nohup</code> i que la descàrrega
+        ja havia arribat al 13 %.
+      </p>
+
+      <img src="imatges/captura8.png"
+           alt="Descàrrega iniciada amb nohup i progrés al 13 per cent">
+
+      <!-- CONCLUSIÓ -->
+      <h3>1.9. Conclusions</h3>
+
+      <p>
+        Amb aquesta pràctica he après a identificar
+        i analitzar processos de Linux, comprovar
+        el consum de CPU i memòria i investigar
+        els processos que poden alentir un sistema.
+      </p>
+
+      <p>
+        També he après a treballar amb processos
+        en segon pla, modificar prioritats amb
+        <code>renice</code>, enviar senyals
+        per aturar o finalitzar processos
+        i utilitzar <code>nohup</code>.
+      </p>
+
+      <p>
+        Aquesta activitat m'ha ajudat a comprendre
+        millor com es gestionen els processos
+        en un servidor Ubuntu.
+      </p>
+
+      <p class="tornar-index">
+        <a href="#index-apartats">↑ Tornar a l'índex</a>
+      </p>
+
     </article>
-    <article class="apartat" id="apartat2">
-      <h2>2. Permisos i propietaris d'arxius</h2>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-         ut aliquip ex ea commodo consequat. Cada arxiu té un
-         <strong>propietari, un grup i uns permisos</strong> que en determinen
-         l'accés.</p>
-      <img src="../img/exemple.svg" alt="Exemple de captura de pantalla dels permisos d'un arxiu">
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-         dolore eu fugiat nulla pariatur.</p>
-      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
-    </article>
+
   </section>
 </main>
 
 <footer class="peu">
   <p class="peu-llicencia">
-    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca" target="_blank" rel="license noopener">
-      <img src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png" alt="Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0" width="88" height="31">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca"
+       target="_blank" rel="license noopener">
+      <img src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"
+           alt="Llicència Creative Commons CC BY-NC-ND 4.0"
+           width="88" height="31">
     </a>
-    <span>Contingut sota llicència <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a></span>
+
+    <span>
+      Contingut sota llicència
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca"
+         target="_blank" rel="license noopener">
+        CC BY-NC-ND 4.0
+      </a>
+    </span>
   </p>
-  <p class="autoria">Autor/a: <strong>Ivan Prats Soria</strong> · Pràctica 0 · Sistemes Operatius (ISOPJ1)</p>
+
+  <p class="autoria">
+    Autor/a: <strong>Ivan Prats Soria</strong> ·
+    Sistemes Operatius (ISOPJ1)
+  </p>
 </footer>
 
 </body>
