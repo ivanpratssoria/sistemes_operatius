@@ -34,8 +34,6 @@
   <section class="panell">
 
     <a id="index-apartats"></a>
-
-    <!-- ÍNDEX -->
     <table class="taula-apartats">
       <thead>
         <tr>
@@ -50,8 +48,6 @@
         </tr>
       </tbody>
     </table>
-
-    <!-- APARTAT 1 -->
     <article class="apartat" id="apartat1">
 
       <h2>1. Gestió de processos</h2>
@@ -68,7 +64,6 @@
         pstree, jobs, bg, fg, renice, kill i nohup</strong>.
       </p>
 
-      <!-- 1.1 -->
       <h3>1.1. Preparació de l'entorn</h3>
 
       <p>
@@ -106,8 +101,7 @@ ls -l</code></pre>
 
       <img src="imatges/captura1.png"
            alt="Creació dels scripts i preparació de la missió">
-
-      <!-- 1.2 -->
+      
       <h3>1.2. Reconeixement dels processos</h3>
 
       <p>
@@ -124,13 +118,12 @@ ls -l</code></pre>
         el backup, juntament amb els seus identificadors PID.
       </p>
 
-      <img src="imatges/captura2_1.png"
+      <img src="img/captura2_1.png"
            alt="Primera part de l'arbre de processos">
 
-      <img src="imatges/captura2_2.png"
+      <img src="img/captura2_2.png"
            alt="Segona part de l'arbre de processos">
 
-      <!-- 1.3 -->
       <h3>1.3. Anàlisi del consum de recursos</h3>
 
       <p>
@@ -147,10 +140,8 @@ ls -l</code></pre>
         per què el servidor anava lent.
       </p>
 
-      <img src="imatges/captura3.png"
+      <img src="img/captura3.png"
            alt="Consum de CPU dels dos processos minador">
-
-      <!-- 1.4 -->
       <h3>1.4. Investigació amb PS i PGREP</h3>
 
       <p>
@@ -176,10 +167,9 @@ ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code><
         de l'usuari.
       </p>
 
-      <img src="imatges/captura4.png"
+      <img src="img/captura4.png"
            alt="Identificació dels processos amb ps i pgrep">
 
-      <!-- 1.5 -->
       <h3>1.5. Control de processos en segon pla</h3>
 
       <p>
@@ -214,10 +204,8 @@ fg %1</code></pre>
         funcionant mentre el terminal estava lliure.
       </p>
 
-      <img src="imatges/captura5.png"
+      <img src="img/captura5.png"
            alt="Control de la descàrrega amb jobs, bg i fg">
-
-      <!-- 1.6 -->
       <h3>1.6. Modificació de prioritats amb RENICE</h3>
 
       <p>
@@ -243,10 +231,8 @@ fg %1</code></pre>
         influir en el repartiment dels recursos.
       </p>
 
-      <img src="imatges/captura6.png"
+      <img src="img/captura6.png"
            alt="Descàrrega amb prioritat -10 i consum de CPU superior">
-
-      <!-- 1.7 -->
       <h3>1.7. Control de processos amb senyals</h3>
 
       <p>
@@ -292,10 +278,8 @@ ps -o pid,stat,comm -p PID_BACKUP</code></pre>
         a l'estat <strong>S</strong> (dormint).
       </p>
 
-      <img src="imatges/captura7.png"
+      <img src="img/captura7.png"
            alt="Finalització dels minadors i l'espia i control del backup">
-
-      <!-- 1.8 -->
       <h3>1.8. Execució persistent amb NOHUP</h3>
 
       <p>
@@ -325,10 +309,9 @@ cat progres.txt</code></pre>
         ja havia arribat al 13 %.
       </p>
 
-      <img src="imatges/captura8.png"
+      <img src="img/captura8.png"
            alt="Descàrrega iniciada amb nohup i progrés al 13 per cent">
 
-      <!-- CONCLUSIÓ -->
       <h3>1.9. Conclusions</h3>
 
       <p>
