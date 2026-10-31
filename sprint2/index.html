@@ -7,7 +7,6 @@
   <title>Sprint 2 · Gestió de processos</title>
   <link rel="stylesheet" href="../css/estils.css">
 </head>
-
 <body>
 
 <header class="hero">
@@ -24,7 +23,6 @@
       <a href="../sprints.html">Índex de sprints</a> /
       Sprint 2
     </p>
-
     <h1>Sprint 2 · Gestió de programari i usuaris</h1>
     <p class="subtitol">Pràctiques i activitats del Sprint 2</p>
   </div>
@@ -33,7 +31,8 @@
 <main class="contenidor">
   <section class="panell">
 
-    <a id="index-apartats"></a>
+    <div id="index-apartats"></div>
+
     <table class="taula-apartats">
       <thead>
         <tr>
@@ -48,27 +47,28 @@
         </tr>
       </tbody>
     </table>
+
     <article class="apartat" id="apartat1">
 
       <h2>1. Gestió de processos</h2>
 
       <p>
         En aquesta pràctica he treballat la gestió de processos
-        en un sistema operatiu Ubuntu. L'objectiu era investigar
-        per què un servidor funcionava lentament, identificar
-        processos sospitosos i aprendre a controlar-los.
+        en Ubuntu. L'objectiu era investigar per què un servidor
+        funcionava lentament, identificar els processos sospitosos
+        i aprendre a controlar-los.
       </p>
 
       <p>
-        He utilitzat comandes com <strong>ps, top, pgrep,
-        pstree, jobs, bg, fg, renice, kill i nohup</strong>.
+        He utilitzat les comandes <strong>ps, top, pgrep, pstree,
+        jobs, bg, fg, renice, kill i nohup</strong>.
       </p>
 
       <h3>1.1. Preparació de l'entorn</h3>
 
       <p>
         Primer he creat una carpeta anomenada
-        <code>missio</code>, on he guardat els scripts
+        <code>missio</code> per guardar els scripts
         necessaris per simular el problema del servidor.
       </p>
 
@@ -76,58 +76,58 @@
 cd ~/missio</code></pre>
 
       <p>
-        He creat els scripts
-        <code>minador</code>,
-        <code>espia</code>,
-        <code>backup_nocturn</code>,
+        He creat els scripts <code>minador</code>,
+        <code>espia</code>, <code>backup_nocturn</code>,
         <code>descarrega.sh</code> i
         <code>sospitosos.sh</code>.
       </p>
 
       <p>
-        El minador consumeix CPU, l'espia ignora el senyal
-        SIGTERM, el backup simula una còpia de seguretat
-        i la descàrrega simula una tasca important.
+        Els minadors consumeixen CPU, l'espia ignora
+        el senyal SIGTERM, el backup simula una còpia
+        de seguretat i la descàrrega simula una tasca
+        que necessita recursos.
       </p>
 
       <p>
         Després he donat permisos d'execució als scripts
-        i he executat el fitxer que inicia els processos.
+        i he iniciat els processos sospitosos.
       </p>
 
       <pre><code>chmod +x minador espia backup_nocturn descarrega.sh sospitosos.sh
 ./sospitosos.sh
 ls -l</code></pre>
 
-      <img src="imatges/captura1.png"
-           alt="Creació dels scripts i preparació de la missió">
-      
+      <img src="../img/captura1.png"
+           alt="Preparació dels scripts de la missió">
+
       <h3>1.2. Reconeixement dels processos</h3>
 
       <p>
-        He utilitzat <code>pstree</code> per veure els
-        processos en forma d'arbre i comprovar quins
-        processos depenien d'altres.
+        He utilitzat <code>pstree</code> per veure
+        els processos en forma d'arbre i identificar
+        la relació entre processos pare i fill.
       </p>
 
       <pre><code>pstree -p $USER</code></pre>
 
       <p>
-        En aquestes captures es poden veure els processos
-        de la missió, com els dos minadors, l'espia i
-        el backup, juntament amb els seus identificadors PID.
+        A les captures es poden veure els dos minadors,
+        l'espia i el backup, amb els seus identificadors PID.
+        L'arbre de processos és molt extens, per això
+        he fet dues captures.
       </p>
 
-      <img src="img/captura2_1.png"
+      <img src="../img/captura2_1.png"
            alt="Primera part de l'arbre de processos">
 
-      <img src="img/captura2_2.png"
+      <img src="../img/captura2_2.png"
            alt="Segona part de l'arbre de processos">
 
       <h3>1.3. Anàlisi del consum de recursos</h3>
 
       <p>
-        He executat <code>top</code> per observar
+        He utilitzat <code>top</code> per observar
         el consum de CPU i memòria en temps real.
       </p>
 
@@ -140,13 +140,14 @@ ls -l</code></pre>
         per què el servidor anava lent.
       </p>
 
-      <img src="img/captura3.png"
-           alt="Consum de CPU dels dos processos minador">
+      <img src="../img/captura3.png"
+           alt="Consum de CPU dels processos minador">
+
       <h3>1.4. Investigació amb PS i PGREP</h3>
 
       <p>
         He utilitzat les comandes <code>ps</code> i
-        <code>pgrep</code> per identificar els processos
+        <code>pgrep</code> per localitzar els processos
         sospitosos i consultar les seves dades.
       </p>
 
@@ -156,30 +157,31 @@ pgrep -l 'minador|espia|backup'
 ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code></pre>
 
       <p>
-        He pogut identificar el PID, el PPID, l'usuari,
+        He identificat el PID, el PPID, l'usuari,
         l'estat, el temps d'execució i el percentatge
         de CPU de cada procés.
       </p>
 
       <p>
-        També he comprovat que els processos de la missió
-        tenien com a procés pare el <code>systemd</code>
-        de l'usuari.
+        També he comprovat que els processos
+        de la missió tenien com a pare el
+        <code>systemd</code> de l'usuari.
       </p>
 
-      <img src="img/captura4.png"
-           alt="Identificació dels processos amb ps i pgrep">
+      <img src="../img/captura4.png"
+           alt="Investigació dels processos amb ps i pgrep">
 
       <h3>1.5. Control de processos en segon pla</h3>
 
       <p>
-        He executat l'script <code>descarrega.sh</code>,
-        que simula la descàrrega d'un fitxer ISO d'Ubuntu.
+        He executat <code>descarrega.sh</code>,
+        un script que simula la descàrrega d'una
+        imatge ISO d'Ubuntu.
       </p>
 
       <p>
         En un altre terminal he utilitzat
-        <code>watch</code> per observar el progrés
+        <code>watch</code> per consultar el progrés
         de la descàrrega.
       </p>
 
@@ -187,11 +189,9 @@ ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code><
 watch -n 1 cat progres.txt</code></pre>
 
       <p>
-        He aturat la descàrrega amb
-        <strong>Ctrl+Z</strong>, he consultat
-        el treball amb <code>jobs -l</code>
-        i l'he reprès en segon pla amb
-        <code>bg %1</code>.
+        He aturat el procés amb <strong>Ctrl+Z</strong>,
+        he consultat el seu estat amb <code>jobs -l</code>
+        i l'he reprès en segon pla amb <code>bg</code>.
       </p>
 
       <pre><code>jobs -l
@@ -199,40 +199,41 @@ bg %1
 fg %1</code></pre>
 
       <p>
-        Finalment, he tornat a deixar el procés
+        Finalment, he tornat a deixar la descàrrega
         en segon pla i he comprovat que continuava
         funcionant mentre el terminal estava lliure.
       </p>
 
-      <img src="img/captura5.png"
+      <img src="../img/captura5.png"
            alt="Control de la descàrrega amb jobs, bg i fg">
+
       <h3>1.6. Modificació de prioritats amb RENICE</h3>
 
       <p>
-        He utilitzat <code>renice</code> per donar
-        més prioritat a la descàrrega i reduir
-        la competència pels recursos de CPU.
+        He utilitzat <code>renice</code> per augmentar
+        la prioritat de la descàrrega i afavorir
+        que rebés més temps de CPU.
       </p>
 
       <pre><code>sudo renice -n -10 -p PID_DESCARREGA</code></pre>
 
       <p>
         Després he observat els processos amb
-        <code>top</code> i he comprovat que
-        la descàrrega tenia un valor NI de
-        <strong>-10</strong> i consumia
-        aproximadament un <strong>81 % de CPU</strong>,
-        mentre que els minadors consumien
-        al voltant d'un 8 % cadascun.
+        <code>top</code> i he comprovat que la
+        descàrrega tenia un valor NI de
+        <strong>-10</strong> i consumia aproximadament
+        un <strong>81 % de CPU</strong>.
       </p>
 
       <p>
-        Això demostra com la prioritat pot
-        influir en el repartiment dels recursos.
+        Els dos minadors consumien aproximadament
+        un 8 % cadascun, de manera que la descàrrega
+        tenia més recursos disponibles.
       </p>
 
-      <img src="img/captura6.png"
-           alt="Descàrrega amb prioritat -10 i consum de CPU superior">
+      <img src="../img/captura6.png"
+           alt="Descàrrega amb prioritat -10">
+
       <h3>1.7. Control de processos amb senyals</h3>
 
       <p>
@@ -261,8 +262,8 @@ pgrep -l espia</code></pre>
       <pre><code>pkill -KILL -x espia</code></pre>
 
       <p>
-        Finalment, he aturat temporalment
-        el procés <code>backup_nocturn</code>
+        Finalment, he aturat temporalment el
+        procés <code>backup_nocturn</code>
         amb SIGSTOP i l'he reprès amb SIGCONT.
       </p>
 
@@ -278,24 +279,24 @@ ps -o pid,stat,comm -p PID_BACKUP</code></pre>
         a l'estat <strong>S</strong> (dormint).
       </p>
 
-      <img src="img/captura7.png"
-           alt="Finalització dels minadors i l'espia i control del backup">
+      <img src="../img/captura7.png"
+           alt="Control dels processos amb senyals">
+
       <h3>1.8. Execució persistent amb NOHUP</h3>
 
       <p>
         En l'última part he iniciat una descàrrega
-        amb <code>nohup</code> perquè el procés
-        pogués continuar funcionant sense dependre
-        del terminal.
+        amb <code>nohup</code> per evitar que
+        depengués de mantenir el terminal obert.
       </p>
 
       <pre><code>nohup ./descarrega.sh > nohup.out 2>&amp;1 &amp;</code></pre>
 
       <p>
-        He comprovat que la descàrrega estava
-        funcionant en segon pla amb
-        <code>jobs -l</code> i he consultat
-        el fitxer de sortida i el progrés.
+        He comprovat que el procés estava funcionant
+        en segon pla amb <code>jobs -l</code>
+        i he consultat el fitxer de sortida
+        i el progrés de la descàrrega.
       </p>
 
       <pre><code>jobs -l
@@ -303,14 +304,14 @@ cat nohup.out
 cat progres.txt</code></pre>
 
       <p>
-        A la captura es veu que el procés s'ha
-        iniciat correctament amb
-        <code>nohup</code> i que la descàrrega
-        ja havia arribat al 13 %.
+        A la captura es veu que la descàrrega
+        s'ha iniciat correctament amb
+        <code>nohup</code> i que ja havia
+        arribat al 13 %.
       </p>
 
-      <img src="img/captura8.png"
-           alt="Descàrrega iniciada amb nohup i progrés al 13 per cent">
+      <img src="../img/captura8.png"
+           alt="Descàrrega iniciada amb nohup">
 
       <h3>1.9. Conclusions</h3>
 
@@ -318,7 +319,7 @@ cat progres.txt</code></pre>
         Amb aquesta pràctica he après a identificar
         i analitzar processos de Linux, comprovar
         el consum de CPU i memòria i investigar
-        els processos que poden alentir un sistema.
+        els processos que poden alentir un servidor.
       </p>
 
       <p>
@@ -331,8 +332,8 @@ cat progres.txt</code></pre>
 
       <p>
         Aquesta activitat m'ha ajudat a comprendre
-        millor com es gestionen els processos
-        en un servidor Ubuntu.
+        millor com funciona la gestió de processos
+        en un sistema Ubuntu.
       </p>
 
       <p class="tornar-index">
