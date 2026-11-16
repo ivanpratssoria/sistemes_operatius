@@ -1,56 +1,30 @@
-
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sprint 2 · Gestió de processos</title>
   <link rel="stylesheet" href="../css/estils.css">
 </head>
+
 <body>
 
 <header class="hero">
-  <nav class="hero-nav">
-    <a href="../index.html">Portada</a>
-    <a href="../sprints.html">Índex de sprints</a>
-    <a href="https://github.com/ivanpratssoria/sistemes_operatius"
-       target="_blank" rel="noopener">Codi a GitHub ↗</a>
-  </nav>
-
-  <div class="hero-titol">
-    <p class="miguetes">
-      <a href="../index.html">Portada</a> /
+@@ -24,7 +23,6 @@
       <a href="../sprints.html">Índex de sprints</a> /
       Sprint 2
     </p>
+
     <h1>Sprint 2 · Gestió de programari i usuaris</h1>
     <p class="subtitol">Pràctiques i activitats del Sprint 2</p>
   </div>
-</header>
-
+@@ -33,7 +31,8 @@ <h1>Sprint 2 · Gestió de programari i usuaris</h1>
 <main class="contenidor">
   <section class="panell">
 
+    <a id="index-apartats"></a>
     <div id="index-apartats"></div>
 
     <table class="taula-apartats">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Apartat</th>
+@@ -48,86 +47,87 @@ <h1>Sprint 2 · Gestió de programari i usuaris</h1>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td><a href="#apartat1">Gestió de processos</a></td>
-        </tr>
-        <tbody>
-  <tr>
-    <td>1</td>
-    <td><a href="#apartat1">Gestió de processos</a></td>
-  </tr>
-</tbody>
       </tbody>
     </table>
 
@@ -60,12 +34,17 @@
 
       <p>
         En aquesta pràctica he treballat la gestió de processos
+        en un sistema operatiu Ubuntu. L'objectiu era investigar
+        per què un servidor funcionava lentament, identificar
+        processos sospitosos i aprendre a controlar-los.
         en Ubuntu. L'objectiu era investigar per què un servidor
         funcionava lentament, identificar els processos sospitosos
         i aprendre a controlar-los.
       </p>
 
       <p>
+        He utilitzat comandes com <strong>ps, top, pgrep,
+        pstree, jobs, bg, fg, renice, kill i nohup</strong>.
         He utilitzat les comandes <strong>ps, top, pgrep, pstree,
         jobs, bg, fg, renice, kill i nohup</strong>.
       </p>
@@ -74,6 +53,7 @@
 
       <p>
         Primer he creat una carpeta anomenada
+        <code>missio</code>, on he guardat els scripts
         <code>missio</code> per guardar els scripts
         necessaris per simular el problema del servidor.
       </p>
@@ -82,6 +62,10 @@
 cd ~/missio</code></pre>
 
       <p>
+        He creat els scripts
+        <code>minador</code>,
+        <code>espia</code>,
+        <code>backup_nocturn</code>,
         He creat els scripts <code>minador</code>,
         <code>espia</code>, <code>backup_nocturn</code>,
         <code>descarrega.sh</code> i
@@ -89,6 +73,9 @@ cd ~/missio</code></pre>
       </p>
 
       <p>
+        El minador consumeix CPU, l'espia ignora el senyal
+        SIGTERM, el backup simula una còpia de seguretat
+        i la descàrrega simula una tasca important.
         Els minadors consumeixen CPU, l'espia ignora
         el senyal SIGTERM, el backup simula una còpia
         de seguretat i la descàrrega simula una tasca
@@ -97,6 +84,7 @@ cd ~/missio</code></pre>
 
       <p>
         Després he donat permisos d'execució als scripts
+        i he executat el fitxer que inicia els processos.
         i he iniciat els processos sospitosos.
       </p>
 
@@ -104,12 +92,18 @@ cd ~/missio</code></pre>
 ./sospitosos.sh
 ls -l</code></pre>
 
+      <img src="imatges/captura1.png"
+           alt="Creació dels scripts i preparació de la missió">
+      
       <img src="../img/captura1.png"
            alt="Preparació dels scripts de la missió">
 
       <h3>1.2. Reconeixement dels processos</h3>
 
       <p>
+        He utilitzat <code>pstree</code> per veure els
+        processos en forma d'arbre i comprovar quins
+        processos depenien d'altres.
         He utilitzat <code>pstree</code> per veure
         els processos en forma d'arbre i identificar
         la relació entre processos pare i fill.
@@ -118,34 +112,37 @@ ls -l</code></pre>
       <pre><code>pstree -p $USER</code></pre>
 
       <p>
+        En aquestes captures es poden veure els processos
+        de la missió, com els dos minadors, l'espia i
+        el backup, juntament amb els seus identificadors PID.
         A les captures es poden veure els dos minadors,
         l'espia i el backup, amb els seus identificadors PID.
         L'arbre de processos és molt extens, per això
         he fet dues captures.
       </p>
 
+      <img src="img/captura2_1.png"
       <img src="../img/captura2_1.png"
            alt="Primera part de l'arbre de processos">
 
+      <img src="img/captura2_2.png"
       <img src="../img/captura2_2.png"
            alt="Segona part de l'arbre de processos">
 
       <h3>1.3. Anàlisi del consum de recursos</h3>
 
       <p>
+        He executat <code>top</code> per observar
         He utilitzat <code>top</code> per observar
         el consum de CPU i memòria en temps real.
       </p>
 
-      <pre><code>top</code></pre>
-
-      <p>
-        He comprovat que els dos processos
-        <code>minador</code> consumien aproximadament
-        un 50 % de CPU cadascun. Això explicava
+@@ -140,13 +140,14 @@ <h3>1.3. Anàlisi del consum de recursos</h3>
         per què el servidor anava lent.
       </p>
 
+      <img src="img/captura3.png"
+           alt="Consum de CPU dels dos processos minador">
       <img src="../img/captura3.png"
            alt="Consum de CPU dels processos minador">
 
@@ -153,33 +150,40 @@ ls -l</code></pre>
 
       <p>
         He utilitzat les comandes <code>ps</code> i
+        <code>pgrep</code> per identificar els processos
         <code>pgrep</code> per localitzar els processos
         sospitosos i consultar les seves dades.
       </p>
 
-      <pre><code>ps aux --sort=-%cpu | head -6
-pgrep minador
-pgrep -l 'minador|espia|backup'
+@@ -156,83 +157,83 @@ <h3>1.4. Investigació amb PS i PGREP</h3>
 ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code></pre>
 
       <p>
+        He pogut identificar el PID, el PPID, l'usuari,
         He identificat el PID, el PPID, l'usuari,
         l'estat, el temps d'execució i el percentatge
         de CPU de cada procés.
       </p>
 
       <p>
+        També he comprovat que els processos de la missió
+        tenien com a procés pare el <code>systemd</code>
+        de l'usuari.
         També he comprovat que els processos
         de la missió tenien com a pare el
         <code>systemd</code> de l'usuari.
       </p>
 
+      <img src="img/captura4.png"
+           alt="Identificació dels processos amb ps i pgrep">
       <img src="../img/captura4.png"
            alt="Investigació dels processos amb ps i pgrep">
 
       <h3>1.5. Control de processos en segon pla</h3>
 
       <p>
+        He executat l'script <code>descarrega.sh</code>,
+        que simula la descàrrega d'un fitxer ISO d'Ubuntu.
         He executat <code>descarrega.sh</code>,
         un script que simula la descàrrega d'una
         imatge ISO d'Ubuntu.
@@ -187,6 +191,7 @@ ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code><
 
       <p>
         En un altre terminal he utilitzat
+        <code>watch</code> per observar el progrés
         <code>watch</code> per consultar el progrés
         de la descàrrega.
       </p>
@@ -195,6 +200,11 @@ ps -o pid,ppid,user,stat,etime,%cpu,comm -C minador,espia,backup_nocturn</code><
 watch -n 1 cat progres.txt</code></pre>
 
       <p>
+        He aturat la descàrrega amb
+        <strong>Ctrl+Z</strong>, he consultat
+        el treball amb <code>jobs -l</code>
+        i l'he reprès en segon pla amb
+        <code>bg %1</code>.
         He aturat el procés amb <strong>Ctrl+Z</strong>,
         he consultat el seu estat amb <code>jobs -l</code>
         i l'he reprès en segon pla amb <code>bg</code>.
@@ -205,17 +215,22 @@ bg %1
 fg %1</code></pre>
 
       <p>
+        Finalment, he tornat a deixar el procés
         Finalment, he tornat a deixar la descàrrega
         en segon pla i he comprovat que continuava
         funcionant mentre el terminal estava lliure.
       </p>
 
+      <img src="img/captura5.png"
       <img src="../img/captura5.png"
            alt="Control de la descàrrega amb jobs, bg i fg">
 
       <h3>1.6. Modificació de prioritats amb RENICE</h3>
 
       <p>
+        He utilitzat <code>renice</code> per donar
+        més prioritat a la descàrrega i reduir
+        la competència pels recursos de CPU.
         He utilitzat <code>renice</code> per augmentar
         la prioritat de la descàrrega i afavorir
         que rebés més temps de CPU.
@@ -225,6 +240,12 @@ fg %1</code></pre>
 
       <p>
         Després he observat els processos amb
+        <code>top</code> i he comprovat que
+        la descàrrega tenia un valor NI de
+        <strong>-10</strong> i consumia
+        aproximadament un <strong>81 % de CPU</strong>,
+        mentre que els minadors consumien
+        al voltant d'un 8 % cadascun.
         <code>top</code> i he comprovat que la
         descàrrega tenia un valor NI de
         <strong>-10</strong> i consumia aproximadament
@@ -232,59 +253,38 @@ fg %1</code></pre>
       </p>
 
       <p>
+        Això demostra com la prioritat pot
+        influir en el repartiment dels recursos.
         Els dos minadors consumien aproximadament
         un 8 % cadascun, de manera que la descàrrega
         tenia més recursos disponibles.
       </p>
 
+      <img src="img/captura6.png"
+           alt="Descàrrega amb prioritat -10 i consum de CPU superior">
       <img src="../img/captura6.png"
            alt="Descàrrega amb prioritat -10">
 
       <h3>1.7. Control de processos amb senyals</h3>
 
       <p>
-        He eliminat els dos minadors amb
-        <strong>SIGTERM</strong> i he comprovat
-        que deixaven d'executar-se.
-      </p>
-
-      <pre><code>pgrep -l minador
-pkill -TERM -x minador</code></pre>
-
-      <p>
-        Després he enviat SIGTERM a l'espia,
-        però ha continuat funcionant perquè
-        estava programat per ignorar aquest senyal.
-      </p>
-
-      <pre><code>pkill -TERM -x espia
-pgrep -l espia</code></pre>
-
-      <p>
-        Per finalitzar-lo definitivament he
-        utilitzat <strong>SIGKILL</strong>.
-      </p>
-
+@@ -261,8 +262,8 @@ <h3>1.7. Control de processos amb senyals</h3>
       <pre><code>pkill -KILL -x espia</code></pre>
 
       <p>
+        Finalment, he aturat temporalment
+        el procés <code>backup_nocturn</code>
         Finalment, he aturat temporalment el
         procés <code>backup_nocturn</code>
         amb SIGSTOP i l'he reprès amb SIGCONT.
       </p>
 
-      <pre><code>kill -STOP PID_BACKUP
-ps -o pid,stat,comm -p PID_BACKUP
-
-kill -CONT PID_BACKUP
-ps -o pid,stat,comm -p PID_BACKUP</code></pre>
-
-      <p>
-        He comprovat que el procés passava
-        de l'estat <strong>T</strong> (aturat)
+@@ -278,47 +279,47 @@ <h3>1.7. Control de processos amb senyals</h3>
         a l'estat <strong>S</strong> (dormint).
       </p>
 
+      <img src="img/captura7.png"
+           alt="Finalització dels minadors i l'espia i control del backup">
       <img src="../img/captura7.png"
            alt="Control dels processos amb senyals">
 
@@ -292,6 +292,9 @@ ps -o pid,stat,comm -p PID_BACKUP</code></pre>
 
       <p>
         En l'última part he iniciat una descàrrega
+        amb <code>nohup</code> perquè el procés
+        pogués continuar funcionant sense dependre
+        del terminal.
         amb <code>nohup</code> per evitar que
         depengués de mantenir el terminal obert.
       </p>
@@ -299,6 +302,10 @@ ps -o pid,stat,comm -p PID_BACKUP</code></pre>
       <pre><code>nohup ./descarrega.sh > nohup.out 2>&amp;1 &amp;</code></pre>
 
       <p>
+        He comprovat que la descàrrega estava
+        funcionant en segon pla amb
+        <code>jobs -l</code> i he consultat
+        el fitxer de sortida i el progrés.
         He comprovat que el procés estava funcionant
         en segon pla amb <code>jobs -l</code>
         i he consultat el fitxer de sortida
@@ -310,12 +317,18 @@ cat nohup.out
 cat progres.txt</code></pre>
 
       <p>
+        A la captura es veu que el procés s'ha
+        iniciat correctament amb
+        <code>nohup</code> i que la descàrrega
+        ja havia arribat al 13 %.
         A la captura es veu que la descàrrega
         s'ha iniciat correctament amb
         <code>nohup</code> i que ja havia
         arribat al 13 %.
       </p>
 
+      <img src="img/captura8.png"
+           alt="Descàrrega iniciada amb nohup i progrés al 13 per cent">
       <img src="../img/captura8.png"
            alt="Descàrrega iniciada amb nohup">
 
@@ -325,337 +338,19 @@ cat progres.txt</code></pre>
         Amb aquesta pràctica he après a identificar
         i analitzar processos de Linux, comprovar
         el consum de CPU i memòria i investigar
+        els processos que poden alentir un sistema.
         els processos que poden alentir un servidor.
       </p>
 
       <p>
-        També he après a treballar amb processos
-        en segon pla, modificar prioritats amb
-        <code>renice</code>, enviar senyals
-        per aturar o finalitzar processos
-        i utilitzar <code>nohup</code>.
-      </p>
+@@ -331,8 +332,8 @@ <h3>1.9. Conclusions</h3>
 
       <p>
         Aquesta activitat m'ha ajudat a comprendre
+        millor com es gestionen els processos
+        en un servidor Ubuntu.
         millor com funciona la gestió de processos
         en un sistema Ubuntu.
       </p>
 
       <p class="tornar-index">
-        <a href="#index-apartats">↑ Tornar a l'índex</a>
-      </p>
-
-    </article>
-
-  </section>
-</main>
-
-<footer class="peu">
-  <p class="peu-llicencia">
-    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca"
-       target="_blank" rel="license noopener">
-      <img src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"
-           alt="Llicència Creative Commons CC BY-NC-ND 4.0"
-           width="88" height="31">
-    </a>
-
-    <span>
-      Contingut sota llicència
-      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ca"
-         target="_blank" rel="license noopener">
-        CC BY-NC-ND 4.0
-      </a>
-    </span>
-  </p>
-
-  <p class="autoria">
-    Autor/a: <strong>Ivan Prats Soria</strong> ·
-    Sistemes Operatius (ISOPJ1)
-  </p>
-</footer>
-
-</body>
-</html>
-
-<article class="apartat" id="apartat2">
-
-  <h2>2. Gestió de la Informació del Sistema i Administració</h2>
-
-  <p>
-    En aquesta pràctica he comprovat què passa amb els fitxers
-    després de formatar un disc. He treballat amb un disc virtual
-    de 200 MB en Ubuntu i he utilitzat PhotoRec per recuperar
-    una foto i un PDF, sense tocar el disc real de l'ordinador.
-  </p>
-
-  <p>
-    També he buscat el contingut d'un fitxer de text i he comprovat
-    la diferència entre formatar un sistema de fitxers i
-    sobreescriure totes les dades.
-  </p>
-
-  <h3>2.1. Preparació de l'entorn</h3>
-
-  <p>
-    Primer he instal·lat el paquet <code>testdisk</code>,
-    que inclou PhotoRec, i he creat la carpeta
-    <code>practica</code>.
-  </p>
-
-  <pre><code>sudo apt install testdisk
-mkdir -p ~/practica
-cd ~/practica
-pwd</code></pre>
-
-  <p>
-    He copiat a la carpeta una foto anomenada
-    <code>foto.jpg</code> i un PDF anomenat
-    <code>apunts.pdf</code>. També he creat un fitxer
-    de text i he comprovat que hi havia els tres fitxers.
-  </p>
-
-  <pre><code>echo "El meu secret és que m'encanta la pizza amb pinya" &gt; notes.txt
-ls -l</code></pre>
-
-  <h3>2.2. Creació del disc virtual</h3>
-
-  <p>
-    He creat el fitxer <code>disc.img</code>, que simula
-    un disc de 200 MB inicialment ple de zeros.
-    Així he pogut fer la pràctica sense modificar cap disc físic.
-  </p>
-
-  <pre><code>dd if=/dev/zero of=disc.img bs=1M count=200 status=progress
-ls -lh disc.img</code></pre>
-
-  <p>
-    La comprovació ha mostrat que <code>disc.img</code>
-    tenia una mida de <strong>200M</strong>.
-  </p>
-
-  <h3>2.3. Formateig i còpia dels fitxers</h3>
-
-  <p>
-    He formatat el disc virtual amb el sistema de fitxers
-    <code>ext4</code>, l'he muntat a <code>/mnt/prova</code>
-    i hi he copiat els tres fitxers de prova.
-  </p>
-
-  <pre><code>mkfs.ext4 disc.img
-sudo mkdir -p /mnt/prova
-sudo mount -o loop disc.img /mnt/prova
-sudo cp foto.jpg apunts.pdf notes.txt /mnt/prova/
-ls -l /mnt/prova</code></pre>
-
-  <p>
-    He comprovat que hi havia la foto, el PDF, el text i
-    la carpeta <code>lost+found</code>.
-    Després he calculat els hashes SHA-256 dels originals
-    per comparar-los amb els fitxers recuperats més endavant.
-  </p>
-
-  <pre><code>sha256sum foto.jpg apunts.pdf notes.txt &gt; originals.sha
-cat originals.sha</code></pre>
-
-  <img src="../img/capt1.png"
-       alt="Captura 1: hashes SHA-256 dels fitxers originals">
-
-  <h3>2.4. Formateig d'alt nivell</h3>
-
-  <p>
-    He desmuntat el disc i l'he tornat a formatar amb
-    l'opció <code>nodiscard</code>, que evita descartar
-    els blocs de dades.
-  </p>
-
-  <pre><code>sudo umount /mnt/prova
-mkfs.ext4 -E nodiscard disc.img
-sudo mount -o loop disc.img /mnt/prova
-ls -l /mnt/prova</code></pre>
-
-  <p>
-    Quan he tornat a muntar-lo, només apareixia
-    la carpeta <code>lost+found</code>.
-    Això demostra que el sistema de fitxers ja no mostrava
-    els fitxers, però no significava que totes les seues
-    dades s'hagueren esborrat.
-  </p>
-
-  <pre><code>sudo umount /mnt/prova</code></pre>
-
-  <img src="../img/capt2.png"
-       alt="Captura 2: després del formateig només apareix lost+found">
-
-  <h3>2.5. Recuperació de la foto i del PDF</h3>
-
-  <p>
-    He executat PhotoRec perquè busque fitxers directament
-    dins del disc virtual.
-    Després he comparat els hashes SHA-256 dels fitxers
-    recuperats amb els dels originals.
-  </p>
-
-  <pre><code>photorec /d recup /cmd disc.img options,fileopt,everything,enable,search
-ls recup.1 | grep -v dovecot
-sha256sum recup.1/*.jpg recup.1/*.pdf
-cat originals.sha</code></pre>
-
-  <p>
-    He recuperat la foto i el PDF amb noms diferents dels
-    originals. Els hashes coincideixen amb els originals,
-    per tant el contingut recuperat és idèntic.
-  </p>
-
-  <img src="../img/capt3.png"
-       alt="Captura 3: els hashes recuperats coincideixen amb els originals">
-
-  <h3>2.6. Recuperació del contingut del text</h3>
-
-  <p>
-    PhotoRec no ha recuperat <code>notes.txt</code>
-    com un fitxer normal, perquè el text pla no té una
-    capçalera característica com la dels JPG o PDF.
-  </p>
-
-  <p>
-    He buscat la paraula <code>pizza</code> directament
-    dins de la imatge del disc.
-  </p>
-
-  <pre><code>strings -e S disc.img | grep pizza</code></pre>
-
-  <p>
-    El terminal ha mostrat la frase
-    <strong>«El meu secret és que m'encanta la pizza amb pinya»</strong>.
-    Per tant, el text continuava dins del disc.
-  </p>
-
-  <img src="../img/capt4.png"
-       alt="Captura 4: frase recuperada amb strings i grep">
-
-  <h3>2.7. Esborrat del disc amb zeros</h3>
-
-  <p>
-    Finalment, he sobreescrit tot el disc virtual amb zeros.
-    En aquesta pràctica és la simulació de l'esborrat
-    anomenat de baix nivell.
-  </p>
-
-  <pre><code>dd if=/dev/zero of=disc.img bs=1M count=200 conv=notrunc status=progress
-photorec /d recup_zeros /cmd disc.img options,fileopt,everything,enable,search
-ls recup_zeros.1 | grep -v dovecot
-strings -e S disc.img | grep pizza</code></pre>
-
-  <p>
-    PhotoRec només ha mostrat <code>report.xml</code>,
-    el seu informe, i la cerca de la paraula
-    <code>pizza</code> no ha donat cap resultat.
-  </p>
-
-  <p>
-    He comprovat que les dades sobreescrites ja no
-    es podien recuperar amb aquestes eines.
-  </p>
-
-  <img src="../img/capt5.png"
-       alt="Captura 5: PhotoRec no troba els fitxers i grep no retorna resultats">
-
-  <h3>2.8. Preguntes finals</h3>
-
-  <p>
-    <strong>1. Després del nivell 3, el disc semblava buit.
-    On eren realment els fitxers?</strong>
-  </p>
-
-  <p>
-    Les dades encara estaven dins del disc, però el formateig
-    havia substituït la informació que permetia localitzar
-    els fitxers. Per això ja no apareixien a la carpeta.
-  </p>
-
-  <p>
-    <strong>2. Per què els fitxers recuperats tenen noms
-    diferents dels originals?</strong>
-  </p>
-
-  <p>
-    Perquè PhotoRec recupera el contingut buscant capçaleres,
-    però els noms originals es guardaven a la informació
-    del sistema de fitxers que s'havia perdut.
-  </p>
-
-  <p>
-    <strong>3. Com puc demostrar que la foto recuperada
-    és exactament la mateixa que l'original?</strong>
-  </p>
-
-  <p>
-    Comparant els hashes SHA-256 de les dues fotos.
-    En la meua captura es veu que coincideixen,
-    així que tenen el mateix contingut.
-  </p>
-
-  <p>
-    <strong>4. Per què PhotoRec ha trobat la foto i el PDF,
-    però no notes.txt? Com l'he trobat?</strong>
-  </p>
-
-  <p>
-    Perquè JPG i PDF tenen capçaleres reconeixibles,
-    però el text pla no. He trobat la frase amb
-    <code>strings -e S disc.img | grep pizza</code>.
-  </p>
-
-  <p>
-    <strong>5. Quin nivell de formateig he fet al nivell 3
-    i quin al nivell 5?</strong>
-  </p>
-
-  <p>
-    Al nivell 3 he fet un formateig d'alt nivell,
-    perquè he creat un sistema de fitxers nou.
-    Al nivell 5 he sobreescrit el disc amb zeros,
-    que la guia anomena esborrat de baix nivell.
-  </p>
-
-  <p>
-    <strong>6. Si volguera vendre un USB amb fotos personals,
-    quin formateig faria?</strong>
-  </p>
-
-  <p>
-    Faria un esborrat segur adequat al dispositiu,
-    perquè un formateig ràpid pot deixar dades recuperables.
-    Així protegiria millor les meues fotos personals.
-  </p>
-
-  <h3>2.9. Conclusions</h3>
-
-  <p>
-    Amb aquesta pràctica he après que un formateig d'alt nivell
-    no sempre elimina les dades. He recuperat la foto i el PDF
-    amb PhotoRec i he comprovat que eren iguals als originals
-    comparant els hashes SHA-256.
-  </p>
-
-  <p>
-    També he recuperat el contingut del fitxer de text amb
-    <code>strings</code> i <code>grep</code>.
-    En canvi, després de sobreescriure tot el disc virtual
-    amb zeros, ja no he pogut recuperar els fitxers.
-  </p>
-
-  <p>
-    Aquesta activitat m'ha ajudat a entendre millor els
-    sistemes de fitxers i la importància d'esborrar
-    correctament les dades.
-  </p>
-
-  <p class="tornar-index">
-    <a href="#index-apartats">↑ Tornar a l'índex</a>
-  </p>
-
-</article>
-
-
